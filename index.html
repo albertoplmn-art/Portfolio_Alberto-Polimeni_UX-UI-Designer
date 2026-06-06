@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alberto Polimeni | UX/UI Designer</title>
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome per icone e fallback -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #030407;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Navigazione bloccata quando il modal è attivo */
+        .modal-open {
+            overflow: hidden !important;
+        }
+
+        /* --- IMMERSIVE HERO SECTION --- */
+        .hero-gradient-box {
+            background: linear-gradient(135deg, #030407 0%, #060e26 50%, #022334 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-gradient-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 75% 50%, rgba(0, 242, 254, 0.55) 0%, rgba(124, 58, 237, 0.45) 40%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero-rounded-bottom {
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-tag-force { font-size: 1.3vw !important; letter-spacing: 0.35em !important; }
+            .hero-title-force { font-size: 7.8vw !important; line-height: 0.82 !important; letter-spacing: -0.04em !important; }
+            .hero-subtitle-force { font-size: 4.2vw !important; letter-spacing: -0.02em !important; }
+            .grid-number-force { font-size: 0.85vw !important; }
+            .grid-title-force { font-size: 1.3vw !important; font-weight: 800 !important; }
+            .grid-desc-force { font-size: 0.95vw !important; line-height: 1.4 !important; }
+        }
+
+        .text-gradient-custom {
+            background: linear-gradient(to right, #00f2fe 0%, #4facfe 30%, #a18cd1 65%, #f43f5e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- IMMAGINE PROFILO HEADER SCHIARITA --- */
+        .hero-backlight-silhouette {
+            position: absolute;
+            right: 2%;
+            bottom: 0;
+            height: 85%;
+            object-fit: contain;
+            pointer-events: none;
+            z-index: 2;
+            filter: brightness(0.85) contrast(1.2) saturate(1.1);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%), linear-gradient(to left, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%), linear-gradient(to left, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+            -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+        }
+
+        @media (max-width: 1023px) {
+            .hero-backlight-silhouette {
+                height: 55%;
+                right: -5%;
+                opacity: 0.35;
+                filter: brightness(0.75) contrast(1.15);
+            }
+        }
+
+        /* --- BACKGROUND SEZIONI --- */
+        .aurora-bg-glows {
+            position: relative;
+            background-color: #04060a;
+            background-image: 
+                radial-gradient(circle at 25% 20%, rgba(0, 242, 254, 0.35) 0%, rgba(13, 148, 136, 0.05) 50%, transparent 70%),
+                radial-gradient(circle at 75% 40%, rgba(99, 102, 241, 0.35) 0%, rgba(76, 29, 149, 0.05) 50%, transparent 70%),
+                radial-gradient(circle at 20% 75%, rgba(139, 92, 246, 0.3) 0%, rgba(49, 46, 129, 0.05) 55%, transparent 75%),
+                radial-gradient(circle at 80% 85%, rgba(0, 229, 255, 0.35) 0%, rgba(15, 118, 110, 0.05) 50%, transparent 70%);
+            background-size: cover;
+        }
+
+        .profile-container-aurora {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* --- FOTO PROFILO RIPRISTINATA (COLORI NATURALI) --- */
+        .profile-floating-fade {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            user-select: none;
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 98%), radial-gradient(circle at center, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 98%), radial-gradient(circle at center, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+            -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+        }
+
+        /* --- BENTO BOX STRUCTURE --- */
+        .glass-bento-box {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 32px;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 25px 60px rgba(0, 0, 0, 0.6);
+            z-index: 10;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+            cursor: pointer;
+        }
+
+        .glass-bento-box:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 242, 254, 0.35);
+            box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.25), 0 40px 80px rgba(0, 242, 254, 0.1), 0 35px 70px rgba(0, 0, 0, 0.7);
+        }
+
+        .project-height {
+            height: 540px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        @media (max-width: 1023px) { .project-height { height: auto; min-height: 540px; } }
+
+        .aurora-mesh {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+            border-radius: inherit;
+        }
+        .aurora-mesh::before, .aurora-mesh::after {
+            content: '';
+            position: absolute;
+            filter: blur(65px);
+            opacity: 0.45;
+            mix-blend-mode: screen;
+            transition: transform 2s cubic-bezier(0.1, 1, 0.3, 1), opacity 1.5s ease;
+        }
+        .mesh-teal-blue::before { width: 85%; height: 85%; bottom: -5%; right: -5%; background: radial-gradient(circle, #00f2fe 0%, #0072ff 100%); }
+        .mesh-teal-blue::after { width: 65%; height: 65%; top: -5%; left: 5%; background: radial-gradient(circle, #d641ff 0%, transparent 80%); opacity: 0.2; }
+        .mesh-violet-blue::before { width: 85%; height: 85%; bottom: -5%; left: -5%; background: radial-gradient(circle, #9d4edd 0%, #3a0ca3 100%); }
+        .mesh-violet-blue::after { width: 75%; height: 65%; top: 5%; right: -5%; background: radial-gradient(circle, #00f2fe 0%, transparent 70%); opacity: 0.25; }
+
+        .active-grid-box .aurora-mesh::before { transform: scale(1.15) translate(-10px, -10px); opacity: 0.65; }
+
+        /* --- PROGETTI CARD VENTAGLIO --- */
+        .fan-container-bento {
+            position: relative;
+            width: 100%;
+            height: 280px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            margin-bottom: 20px;
+            perspective: 1200px;
+        }
+        .project-card {
+            position: absolute;
+            width: 220px; 
+            height: 220px; 
+            border-radius: 22px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease;
+            opacity: 0;
+        }
+        .c1 { z-index: 10; transform: translate3d(0, 40px, -140px); }
+        .c2 { z-index: 20; transform: translate3d(0, 40px, -70px); }
+        .c3 { z-index: 30; transform: translate3d(0, 40px, 0); }
+
+        .active-grid-box .c1 { opacity: 0.55; transform: translate3d(-125px, 50px, -90px) rotateX(8deg) rotateY(22deg) rotateZ(-5deg); }
+        .active-grid-box .c2 { opacity: 0.88; transform: translate3d(-5px, 20px, -30px) rotateX(8deg) rotateY(22deg) rotateZ(-5deg); }
+        .active-grid-box .c3 { opacity: 1; transform: translate3d(115px, -10px, 40px) rotateX(8deg) rotateY(22deg) rotateZ(-5deg); box-shadow: -20px 30px 60px rgba(0, 0, 0, 0.85); }
+
+        @media (max-width: 640px) {
+            .fan-container-bento { height: 220px; perspective: 800px; }
+            .project-card { width: 130px; height: 130px; }
+            .active-grid-box .c1 { transform: translate3d(-60px, 35px, -60px) rotateX(8deg) rotateY(22deg) rotateZ(-5deg); }
+            .active-grid-box .c2 { transform: translate3d(-5px, 15px, -20px) rotateX(8deg) rotateY(22deg) rotateZ(-5deg); }
+            .active-grid-box .c3 { transform: translate3d(55px, -5px, 25px) rotateX(8deg) rotateY(22deg) rotateZ(-5deg); }
+        }
+
+        /* --- POPUP / DETTAGLIO PROGETTO --- */
+        .glass-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 4, 7, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 20px;
+        }
+        .glass-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .glass-modal-container {
+            width: 100%;
+            max-width: 1440px;
+            height: 90vh;
+            background: #060913;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 28px;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+            overflow-y: auto;
+            overflow-x: hidden;
+            transform: scale(0.96) translateY(20px);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-modal-overlay.active .glass-modal-container {
+            transform: scale(1) translateY(0);
+        }
+        /* Custom scrollbar per il pop-up */
+        .glass-modal-container::-webkit-scrollbar { width: 8px; }
+        .glass-modal-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.01); border-radius: 0 28px 28px 0; }
+        .glass-modal-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+        .glass-modal-container::-webkit-scrollbar-thumb:hover { background: rgba(0, 242, 254, 0.4); }
+    </style>
+</head>
+<body class="text-gray-100 font-sans antialiased">
+
+    <!-- HERO SECTION -->
+    <div class="hero-gradient-box hero-rounded-bottom w-full min-h-[96vh] flex flex-col justify-between px-8 md:px-24 pb-12 pt-14 z-10">
+        
+        <!-- FOTO HERO CON VALORI DI CONTROLUCE (SCHIARITI) -->
+        <img src="Foto profilo oscurata.png" alt="Alberto Portrait" class="hero-backlight-silhouette" id="hero-avatar">
+
+        <header class="w-full flex justify-end items-center z-30 relative pt-2">
+            <div class="flex items-center gap-8 text-base md:text-lg font-black tracking-[0.15em] text-gray-200 uppercase">
+                <a href="#lang-en" class="flex items-center gap-2 font-black text-white hover:text-cyan-400 transition tracking-normal normal-case text-base md:text-lg">
+                    ENG 
+                    <svg class="w-6 h-4 md:w-6.5 md:h-4.5 rounded-xs shadow-md" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                        <clipPath id="s"><rect width="60" height="30"/></clipPath>
+                        <g clip-path="url(#s)">
+                            <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+                            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+                            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+                            <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+                            <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+                        </g>
+                    </svg>
+                </a>
+                <a href="#about" class="hover:text-cyan-400 font-extrabold transition">About</a>
+                <a href="#projects" class="hover:text-cyan-400 font-extrabold transition">Projects</a>
+                <a href="mailto:albertoplmn@gmail.com" class="bg-white text-slate-950 px-7 py-3 rounded-full font-black hover:bg-cyan-400 hover:text-white transition flex items-center gap-2.5 normal-case tracking-normal text-base md:text-lg shadow-2xl transform hover:scale-105 active:scale-95 duration-200">
+                    Get in touch <span>→</span>
+                </a>
+            </div>
+        </header>
+
+        <main class="w-full z-20 relative my-auto select-none">
+            <div class="space-y-2 md:space-y-4 max-w-full">
+                <p class="hero-tag-force text-sm sm:text-base font-black text-cyan-400 uppercase m-0">Hey, I'm</p>
+                <h1 class="hero-title-force text-5xl sm:text-7xl font-black text-white uppercase tracking-tighter m-0">
+                    Alberto<br>Polimeni<span class="text-white">.</span>
+                </h1>
+                <p class="hero-subtitle-force text-3xl sm:text-5xl font-black tracking-tight m-0 pt-2">
+                    <span class="text-gradient-custom">UX/UI Designer</span>
+                </p>
+            </div>
+        </main>
+
+        <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-6 border-t border-white/10 z-20 relative">
+            <div class="space-y-1">
+                <span class="grid-number-force text-xs lg:text-sm font-mono text-cyan-400 block font-black tracking-wider">#01</span>
+                <span class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">User Research & Flows</span>
+                <span class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Interviews, Card Sorting & Personas</span>
+            </div>
+            <div class="space-y-1">
+                <span class="grid-number-force text-xs lg:text-sm font-mono text-violet-400 block font-black tracking-wider">#02</span>
+                <span class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">High-Fidelity Prototyping</span>
+                <span class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Pixel-perfect UI & interactive systems</span>
+            </div>
+            <div class="space-y-1">
+                <span class="grid-number-force text-xs lg:text-sm font-mono text-cyan-400 block font-black tracking-wider">#03</span>
+                <span class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">Next-Gen Prototyping</span>
+                <span class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Workflow optimization via generative AI</span>
+            </div>
+            <div class="space-y-1">
+                <span class="grid-number-force text-xs lg:text-sm font-mono text-violet-400 block font-black tracking-wider">#04</span>
+                <span class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">Brand & Visual Systems</span>
+                <span class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Scalable visual identity & brand consistency</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEZIONE ABOUT -->
+    <div class="aurora-bg-glows w-full">
+        <section id="about" class="w-full pt-28 pb-20 px-8 md:px-24 overflow-visible scroll-mt-12">
+            <div class="w-full grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                <div class="w-full flex justify-center md:justify-start md:col-span-3 overflow-visible">
+                    <div class="profile-container-aurora max-w-xs h-80 md:h-[460px] overflow-visible">
+                        <img src="foto profilo 1.png" alt="Alberto Polimeni Portrait" class="profile-floating-fade transform scale-105 origin-center" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'text-xs text-gray-500 font-mono text-center\'>Immagine non trovata</div>'">
+                    </div>
+                </div>
+                <div class="w-full md:col-span-6 space-y-5 md:px-4">
+                    <div>
+                        <span class="inline-block bg-white text-slate-950 font-black text-lg md:text-xl uppercase tracking-wider px-4 py-1.5 mb-5 rounded-xs select-none">About me</span>
+                        <p class="text-lg md:text-xl lg:text-2xl font-semibold text-gray-200 leading-relaxed">
+                            Sono un <span class="text-cyan-400 font-bold">UI/UX Designer</span> con un background solido e strutturato: unisco una Laurea Triennale in Design a un'esperienza biennale sul campo come <span class="text-violet-400 font-bold">Graphic Designer</span>. Attualmente sto completando il mio percorso di specializzazione presso il <span class="text-white font-bold underline decoration-cyan-400 decoration-2">Talent Garden di Milano</span>.
+                        </p>
+                    </div>
+                    <p class="text-sm md:text-base text-gray-400 leading-relaxed font-normal">
+                        Il mio obiettivo è rendere i prodotti digitali semplici da usare, intuitivi ed esteticamente straordinari. Nel mio lavoro unisco logica e creatività, velocizzando la progettazione grazie all'uso di strumenti di Intelligenza Artificiale di ultima generazione per responder in modo preciso e immediato ai bisogni reali delle persone.
+                    </p>
+                </div>
+                
+                <!-- SIDEBAR TOOLKIT -->
+                <div class="w-full md:col-span-3 space-y-6">
+                    <!-- DESIGN TOOLKIT -->
+                    <div>
+                        <span class="inline-block bg-white/10 border border-white/10 text-white font-black text-xs uppercase tracking-widest px-3 py-1 mb-3 rounded-xs select-none">Design Toolkit</span>
+                        <div class="grid grid-cols-4 gap-2.5">
+                            <div class="flex items-center justify-center bg-white/[0.03] border border-white/10 aspect-square rounded-xl p-2.5 hover:border-cyan-400/40 transition duration-300 group" title="Figma">
+                                <svg class="w-6 h-6 opacity-70 group-hover:opacity-100 transition" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 4.5C3 3.12 4.12 2 5.5 2C6.88 2 8 3.12 8 4.5V7.5H3V4.5Z" fill="#F24E1E"/>
+                                    <path d="M3 10.5C3 9.12 4.12 8 5.5 8H8V13H5.5C4.12 13 3 11.88 3 10.5Z" fill="#A259FF"/>
+                                    <path d="M3 15.5C3 14.12 4.12 13 5.5 13C6.88 13 8 14.12 8 15.5C8 16.88 6.88 18 5.5 18C4.12 18 3 16.88 3 15.5Z" fill="#0ACF83"/>
+                                    <path d="M8 7.5H10.5C11.88 7.5 13 6.38 13 5C13 3.62 11.88 2.5 10.5 2.5C9.12 2.5 8 3.62 8 5V7.5Z" fill="#FF7262"/>
+                                    <path d="M8 7.5H10.5C11.88 7.5 13 8.62 13 10C13 11.38 11.88 12.5 10.5 12.5H8V7.5Z" fill="#1ABC9C"/>
+                                </svg>
+                            </div>
+                            <div class="flex items-center justify-center bg-white/[0.03] border border-white/10 aspect-square rounded-xl p-2 hover:border-amber-500/40 transition duration-300 group" title="Adobe Illustrator">
+                                <img src="illustrator.png" alt="Illustrator" class="w-7 h-7 object-contain opacity-70 group-hover:opacity-100 transition">
+                            </div>
+                            <div class="flex items-center justify-center bg-white/[0.03] border border-white/10 aspect-square rounded-xl p-2 hover:border-blue-500/40 transition duration-300 group" title="Adobe Photoshop">
+                                <img src="photoshop.png" alt="Photoshop" class="w-7 h-7 object-contain opacity-70 group-hover:opacity-100 transition">
+                            </div>
+                            <div class="flex items-center justify-center bg-white/[0.03] border border-white/10 aspect-square rounded-xl p-2 hover:border-cyan-400/40 transition duration-300 group" title="Canva">
+                                <img src="canva.png" alt="Canva" class="w-7 h-7 object-contain opacity-70 group-hover:opacity-100 transition">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GENERATIVE AI -->
+                    <div>
+                        <span class="inline-block bg-white/10 border border-white/10 text-white font-black text-xs uppercase tracking-widest px-3 py-1 mb-3 rounded-xs select-none">Generative AI</span>
+                        <div class="grid grid-cols-4 gap-2.5">
+                            <div class="flex items-center justify-center bg-white/[0.03] border border-white/10 aspect-square rounded-xl p-2 hover:border-teal-400/40 transition duration-300 group" title="Perplexity AI">
+                                <img src="perplexity.png" alt="Perplexity" class="w-6 h-6 object-contain opacity-70 group-hover:opacity-100 transition">
+                            </div>
+                            <div class="flex items-center justify-center bg-white/[0.03] border border-white/10 aspect-square rounded-xl p-2 hover:border-emerald-400/40 transition duration-300 group" title="Antigravity">
+                                <img src="antigravity.png" alt="Antigravity" class="w-6 h-6 object-contain opacity-70 group-hover:opacity-100 transition">
+                            </div>
+                            <div class="flex items-center justify-center bg-white/[0.03] border border-white/10 aspect-square rounded-xl p-2 hover:border-indigo-400/40 transition duration-300 group" title="Google Gemini">
+                                <img src="gemini.png" alt="Gemini" class="w-6 h-6 object-contain opacity-70 group-hover:opacity-100 transition">
+                            </div>
+                            <div class="flex items-center justify-center bg-white/[0.03] border border-white/10 aspect-square rounded-xl p-2 hover:border-rose-400/40 transition duration-300 group" title="ChatGPT">
+                                <img src="chatgpt.png" alt="ChatGPT" class="w-6 h-6 object-contain opacity-70 group-hover:opacity-100 transition">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUNTO 2: PROGETTI -->
+        <section id="projects" class="w-full pb-16 pt-16 px-6 md:px-16 overflow-visible">
+            <div class="w-full mb-10 pl-2">
+                <p class="text-xs font-mono text-cyan-400 font-black uppercase tracking-widest mb-1">02 / Portfolio</p>
+                <h2 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter">Selezionati: Progetti</h2>
+            </div>
+            
+            <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
+                <!-- PROGETTO 1: LIBRACCIO -->
+                <div class="grid-box-trigger w-full" onclick="openModal('libraccio-modal')">
+                    <div class="glass-bento-box project-height p-8 md:p-10">
+                        <div class="aurora-mesh mesh-teal-blue"></div>
+                        <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <p class="text-xs font-mono text-cyan-300 font-black uppercase tracking-widest">Project Work — Case Study</p>
+                                <div class="flex gap-1.5">
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-cyan-300 font-bold uppercase">Strumenti AI</span>
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-cyan-300 font-bold uppercase">Figma</span>
+                                </div>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Libraccio.it</h2>
+                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Ottimizzazione dell'esperienza e-commerce, flussi d'acquisto e architettura dell'informazione user-centered.</p>
+                        </div>
+                        <div class="fan-container-bento">
+                            <video class="project-card c1 object-cover" autoplay loop muted playsinline><source src="Libraccio_programma fedeltà.mp4" type="video/mp4"></video>
+                            <video class="project-card c2 object-cover" autoplay loop muted playsinline><source src="Libraccio_Profilo e Sfide.mp4" type="video/mp4"></video>
+                            <video class="project-card c3 object-cover" autoplay loop muted playsinline><source src="Libraccio_consigliati.mp4" type="video/mp4"></video>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROGETTO 2: FRAC FESTIVAL -->
+                <div class="grid-box-trigger w-full" onclick="openModal('frac-modal')">
+                    <div class="glass-bento-box project-height p-8 md:p-10">
+                        <div class="aurora-mesh mesh-violet-blue"></div>
+                        <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <p class="text-xs font-mono text-violet-300 font-black uppercase tracking-widest">Experience & Branding</p>
+                                <div class="flex gap-1.5">
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-violet-300 font-bold uppercase">Illustrator</span>
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-violet-300 font-bold uppercase">Photoshop</span>
+                                </div>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Frac Festival</h2>
+                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Tesi di laurea — Progettazione dell'identità visiva digitale per il festival di musica e arte.</p>
+                        </div>
+                        <div class="fan-container-bento">
+                            <img src="Frac festival 2024- Kit Basic.jpg" alt="Frac Sfondo" class="project-card c1 object-cover">
+                            <img src="Frac Festival 2023, Summer KIT.jpg" alt="Frac Centro" class="project-card c2 object-cover">
+                            <img src="Frac festival 2024- Midnight Kit.jpg" alt="Frac Avanti" class="project-card c3 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUNTO 3: GRAPHIC DESIGNER -->
+        <section class="w-full pb-32 pt-8 px-6 md:px-16 overflow-visible">
+            <div class="w-full mb-10 pl-2">
+                <p class="text-xs font-mono text-cyan-400 font-black uppercase tracking-widest mb-1">03 / Portfolio</p>
+                <h2 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter">
+                    Selezionati: Graphic Designer 
+                    <span class="block text-sm md:text-lg font-bold text-gray-400 normal-case tracking-normal mt-1">(Social Media Management)</span>
+                </h2>
+            </div>
+            
+            <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
+                <!-- PROGETTO 3: MAMAS (UNICO TOOL: CANVA) -->
+                <div class="grid-box-trigger w-full" onclick="openModal('mamas-modal')">
+                    <div class="glass-bento-box project-height p-8 md:p-10">
+                        <div class="aurora-mesh mesh-teal-blue"></div>
+                        <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <p class="text-xs font-mono text-cyan-300 font-black uppercase tracking-widest">Social Media Design</p>
+                                <div class="flex gap-1.5">
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-cyan-300 font-bold uppercase">Canva</span>
+                                </div>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Mamas</h2>
+                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Sviluppo di contenuti visuali e strategia di comunicazione per la presenza digital del brand.</p>
+                        </div>
+                        <div class="fan-container-bento">
+                            <img src="Mamas - Storie 1.jpg" alt="Mamas Story 1" class="project-card c1 object-cover">
+                            <img src="Mamas - Post 1.jpg" alt="Mamas Post 1" class="project-card c2 object-cover">
+                            <img src="Mamas - Post.jpg" alt="Mamas Cover" class="project-card c3 object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROGETTO 4: PILONE (UNICO TOOL: CANVA) -->
+                <div class="grid-box-trigger w-full" onclick="openModal('pilone-modal')">
+                    <div class="glass-bento-box project-height p-8 md:p-10">
+                        <div class="aurora-mesh mesh-violet-blue"></div>
+                        <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <p class="text-xs font-mono text-violet-300 font-black uppercase tracking-widest">Visual Communication</p>
+                                <div class="flex gap-1.5">
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-violet-300 font-bold uppercase">Canva</span>
+                                </div>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Pilone</h2>
+                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Progettazione grafica editoriale e coordinamento d'immagine coordinata per piattaforme web.</p>
+                        </div>
+                        <div class="fan-container-bento">
+                            <img src="Pilone - Storie 1.jpg" alt="Pilone Story 1" class="project-card c1 object-cover">
+                            <img src="Pilone - Post 1.jpg" alt="Pilone Post 1" class="project-card c2 object-cover">
+                            <img src="Pilone - Post.jpg" alt="Pilone Cover" class="project-card c3 object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROGETTO 5: TORREFAZIONE -->
+                <div class="grid-box-trigger w-full" onclick="openModal('torrefazione-modal')">
+                    <div class="glass-bento-box project-height p-8 md:p-10">
+                        <div class="aurora-mesh mesh-teal-blue"></div>
+                        <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <p class="text-xs font-mono text-cyan-300 font-black uppercase tracking-widest">Digital Art Direction</p>
+                                <div class="flex gap-1.5">
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-cyan-300 font-bold uppercase">Canva</span>
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-cyan-300 font-bold uppercase">Branding</span>
+                                </div>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Torrefazione</h2>
+                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Rinfresco d'immagine digitale per una torrefazione artigianale focalizzata sull'identità e sul territorio.</p>
+                        </div>
+                        <div class="fan-container-bento">
+                            <img src="Torrefazione - Storie 1.jpg" alt="Torrefazione Story" class="project-card c1 object-cover">
+                            <img src="Torrefazione - Storie 2.jpg" alt="Torrefazione Story 2" class="project-card c2 object-cover">
+                            <img src="Torrefazione - Storie.jpg" alt="Torrefazione Cover" class="project-card c3 object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROGETTO 6: STELLA MARINA -->
+                <div class="grid-box-trigger w-full" onclick="openModal('stella-modal')">
+                    <div class="glass-bento-box project-height p-8 md:p-10">
+                        <div class="aurora-mesh mesh-violet-blue"></div>
+                        <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <p class="text-xs font-mono text-violet-300 font-black uppercase tracking-widest">Brand Identity</p>
+                                <div class="flex gap-1.5">
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-violet-300 font-bold uppercase">Canva</span>
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-violet-300 font-bold uppercase">Branding</span>
+                                </div>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Stella Marina</h2>
+                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Restyling visuale e design system completo per canali promozionali e d'accoglienza.</p>
+                        </div>
+                        <div class="fan-container-bento">
+                            <img src="Stella Marina - Storie 1.jpg" alt="Stella Marina Story 1" class="project-card c1 object-cover">
+                            <img src="Stella Marina - Storie 2.jpg" alt="Stella Marina Story 2" class="project-card c2 object-cover">
+                            <img src="Stella Marina - Storie.jpg" alt="Stella Marina Cover" class="project-card c3 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- POPUP DETTAGLIO: LIBRACCIO.IT -->
+    <div id="libraccio-modal" class="glass-modal-overlay" onclick="closeModalOnOverlay(event, 'libraccio-modal')">
+        <div class="glass-modal-container">
+            
+            <!-- 1) HEADER CON GLASSMORPHISM E AURORA UI -->
+            <div class="relative w-full h-[60vh] md:h-[65vh] flex flex-col justify-between p-8 md:p-16 overflow-hidden bg-[#02050c] border-b border-white/10">
+                <div class="absolute inset-0 z-0 pointer-events-none">
+                    <div class="absolute -top-1/4 -left-1/4 w-[85%] h-[95%] rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 blur-[110px] opacity-100"></div>
+                    <div class="absolute -bottom-1/4 -right-1/4 w-[75%] h-[85%] rounded-full bg-gradient-to-br from-[#00f5d4] to-teal-800 blur-[110px] opacity-100"></div>
+                    <div class="absolute top-1/4 left-1/3 w-[45%] h-[40%] rotate-45 rounded-full bg-violet-500 blur-[100px] opacity-90"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#060913]"></div>
+                </div>
+
+                <div class="w-full flex justify-between items-center z-10 relative">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Project Work in Talent Garden with Libraccio.it</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
+                            <span class="text-[10px] font-mono text-gray-400 font-bold uppercase mr-1">Tools:</span>
+                            <svg class="w-5 h-5" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" title="Figma"><path d="M3 4.5C3 3.12 4.12 2 5.5 2C6.88 2 8 3.12 8 4.5V7.5H3V4.5Z" fill="#F24E1E"/><path d="M3 10.5C3 9.12 4.12 8 5.5 8H8V13H5.5C4.12 13 3 11.88 3 10.5Z" fill="#A259FF"/><path d="M3 15.5C3 14.12 4.12 13 5.5 13C6.88 13 8 14.12 8 15.5C8 16.88 6.88 18 5.5 18C4.12 18 3 16.88 3 15.5Z" fill="#0ACF83"/><path d="M8 7.5H10.5C11.88 7.5 13 6.38 13 5C13 3.62 11.88 2.5 10.5 2.5C9.12 2.5 8 3.62 8 5V7.5Z" fill="#FF7262"/><path d="M8 7.5H10.5C11.88 7.5 13 8.62 13 10C13 11.38 11.88 12.5 10.5 12.5H8V7.5Z" fill="#1ABC9C"/></svg>
+                            <img src="chatgpt.png" alt="ChatGPT" class="w-5 h-5 object-contain" title="ChatGPT / Generative AI">
+                        </div>
+                        <button onclick="closeModal('libraccio-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
+                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="z-10 relative space-y-4 max-w-4xl">
+                    <span class="text-xs md:text-sm font-black text-cyan-400 uppercase tracking-widest block">Libraccio.it</span>
+                    <h2 class="text-4xl sm:text-6xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
+                        Checkout &<br>Engagement Redesign
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-300 max-w-2xl font-normal tracking-wide mt-2">
+                        Ottimizzazione strutturale della user journey di acquisto, integrazione di dinamiche di gamification e ristrutturazione dei flussi informativi.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2) SEZIONE IMMAGINI E VIDEO DEL PROGETTO -->
+            <div class="px-8 md:px-16 py-16 space-y-16">
+                <div class="space-y-10">
+                    <div class="w-full mb-2">
+                        <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider">Visual Deliverables & Interface Systems</h4>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-slate-900/60 border border-white/10 rounded-2xl overflow-hidden aspect-video relative group shadow-2xl">
+                            <img src="Libraccio.obiettivi.png" alt="Libraccio Obiettivi" class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-mono text-gray-300">
+                                High-Fidelity Workspace: Obiettivi
+                            </div>
+                        </div>
+                        
+                        <div class="bg-slate-900/60 border border-white/10 rounded-2xl overflow-hidden aspect-video relative group shadow-2xl">
+                            <img src="Libraccio.ricerca.png" alt="Libraccio Ricerca" class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-mono text-gray-300">
+                                High-Fidelity Workspace: Ricerca
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/60 border border-white/10 rounded-2xl overflow-hidden aspect-video relative group shadow-2xl">
+                            <img src="Libraccio.risposte.png" alt="Libraccio Risposte" class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-mono text-gray-300">
+                                High-Fidelity Workspace: Risposte
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/60 border border-white/10 rounded-2xl overflow-hidden aspect-video relative group shadow-2xl">
+                            <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                <source src="Libraccio_consigliati.mp4" type="video/mp4">
+                            </video>
+                            <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-mono text-gray-300">
+                                Looping Preview: Consigliati Flow
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/60 border border-white/10 rounded-2xl overflow-hidden aspect-video relative group shadow-2xl">
+                            <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                <source src="Libraccio_Profilo e Sfide.mp4" type="video/mp4">
+                            </video>
+                            <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-mono text-gray-300">
+                                Looping Preview: Gamification & Profile Challenges
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/60 border border-white/10 rounded-2xl overflow-hidden aspect-video relative group shadow-2xl">
+                            <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                <source src="Libraccio_programma fedeltà.mp4" type="video/mp4">
+                            </video>
+                            <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-mono text-gray-300">
+                                Looping Preview: Fidelity Program Flow
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden p-4 md:p-8 shadow-2xl relative">
+                        <div class="absolute top-4 left-4 z-10 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-mono text-gray-300">
+                            High-Fidelity Desktop Workspace: Scaffali
+                        </div>
+                        <video class="w-full max-h-[60vh] object-contain rounded-xl block mx-auto" autoplay loop muted playsinline>
+                            <source src="Libraccio_Scaffali.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/10 flex justify-center">
+                    <button onclick="closeModal('libraccio-modal')" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                        Back to Portfolio Overview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP DETTAGLIO: FRAC FESTIVAL -->
+    <div id="frac-modal" class="glass-modal-overlay" onclick="closeModalOnOverlay(event, 'frac-modal')">
+        <div class="glass-modal-container">
+            <!-- HEADER CON GLASSMORPHISM E AURORA UI VIOLET -->
+            <div class="relative w-full h-[60vh] md:h-[65vh] flex flex-col justify-between p-8 md:p-16 overflow-hidden bg-[#03020a] border-b border-white/10">
+                <div class="absolute inset-0 z-0 pointer-events-none">
+                    <div class="absolute -top-1/4 -left-1/4 w-[85%] h-[95%] rounded-full bg-gradient-to-br from-purple-600 to-indigo-800 blur-[110px] opacity-100"></div>
+                    <div class="absolute -bottom-1/4 -right-1/4 w-[75%] h-[85%] rounded-full bg-gradient-to-br from-fuchsia-500 to-pink-600 blur-[110px] opacity-100"></div>
+                    <div class="absolute top-1/4 left-1/3 w-[40%] h-[35%] rotate-45 rounded-full bg-cyan-400 blur-[100px] opacity-95"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#060913]"></div>
+                </div>
+
+                <div class="w-full flex justify-between items-center z-10 relative">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-violet-400 animate-pulse"></span>
+                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Graduation Project — Branding & Experience</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
+                            <span class="text-[10px] font-mono text-gray-400 font-bold uppercase mr-1">Tools:</span>
+                            <img src="illustrator.png" alt="Illustrator" class="w-5 h-5 object-contain" title="Adobe Illustrator">
+                            <img src="photoshop.png" alt="Photoshop" class="w-5 h-5 object-contain" title="Adobe Photoshop">
+                        </div>
+                        <button onclick="closeModal('frac-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
+                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="z-10 relative space-y-4 max-w-4xl">
+                    <span class="text-xs md:text-sm font-black text-violet-400 uppercase tracking-widest block">Frac Festival</span>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
+                        Rebranding visivo per le edizioni 2023 e 2024
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
+                        Progettare l'immaginario del festival tra identità digitale e design di prodotto.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2) SEZIONE IMMAGINI FRAC IN PROPORZIONE ORIGINALE -->
+            <div class="px-8 md:px-16 py-16 space-y-16">
+                <div class="space-y-16">
+                    <!-- SEZIONE EDIZIONE 2023 -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <h4 class="text-xl font-black text-violet-400 uppercase tracking-widest font-mono">Edizione 2023</h4>
+                            <div class="h-px bg-white/10 flex-grow"></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
+                                <img src="Frac Festival 2023, Summer KIT.jpg" alt="Frac Summer Kit 2023" class="w-full h-auto block">
+                                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Summer KIT</div>
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
+                                <img src="Frac Festival 2023, Kid's KIT.jpg" alt="Frac Kids Kit 2023" class="w-full h-auto block">
+                                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Kid's KIT</div>
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
+                                <img src="Frac Festival 2023, Pochette Beauty.jpg" alt="Frac Pochette Beauty 2023" class="w-full h-auto block">
+                                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Pochette Beauty</div>
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
+                                <img src="Frac Festival 2023, Wild KIT.jpg" alt="Frac Wild Kit 2023" class="w-full h-auto block">
+                                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Wild KIT</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEZIONE EDIZIONE 2024 (SCAMBIATE POSIZIONI WILD KIT E KIT BASIC) -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <h4 class="text-xl font-black text-cyan-400 uppercase tracking-widest font-mono">Edizione 2024</h4>
+                            <div class="h-px bg-white/10 flex-grow"></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                            <!-- Inserito Wild KIT al posto di Kit Basic -->
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
+                                <img src="Frac festival 2024- Wild KIT.jpg" alt="Frac Wild Kit 2024" class="w-full h-auto block">
+                                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Wild Kit</div>
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
+                                <img src="Frac festival 2024- Midnight Kit.jpg" alt="Frac Midnight Kit 2024" class="w-full h-auto block">
+                                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Midnight Kit</div>
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
+                                <img src="Frac festival 2024- Kids Kit.jpg" alt="Frac Kids Kit 2024" class="w-full h-auto block">
+                                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Kids Kit</div>
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
+                                <img src="Frac festival 2024- Tote bag.jpg" alt="Frac Tote Bag 2024" class="w-full h-auto block">
+                                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Tote Bag</div>
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
+                                <img src="Frac festival 2024- T-shirt.jpg" alt="Frac T-Shirt 2024" class="w-full h-auto block">
+                                <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">T-Shirt</div>
+                            </div>
+                        </div>
+                        <!-- Inserito Kit Basic al posto di Wild KIT in fondo a tutta larghezza -->
+                        <div class="w-full bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden shadow-2xl relative">
+                            <img src="Frac festival 2024- Kit Basic.jpg" alt="Frac Kit Basic 2024 Landscape" class="w-full h-auto block">
+                            <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Kit Basic 2024</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/10 flex justify-center">
+                    <button onclick="closeModal('frac-modal')" class="bg-violet-600 hover:bg-violet-500 text-white font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                        Back to Portfolio Overview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP DETTAGLIO: MAMAS (UNICO TOOL: CANVA, IMMAGINI CLICCABILI) -->
+    <div id="mamas-modal" class="glass-modal-overlay" onclick="closeModalOnOverlay(event, 'mamas-modal')">
+        <div class="glass-modal-container">
+            <!-- HEADER CON GLASSMORPHISM E AURORA UI TEAL -->
+            <div class="relative w-full h-[60vh] md:h-[65vh] flex flex-col justify-between p-8 md:p-16 overflow-hidden bg-[#020509] border-b border-white/10">
+                <div class="absolute inset-0 z-0 pointer-events-none">
+                    <div class="absolute -top-1/4 -left-1/4 w-[85%] h-[95%] rounded-full bg-gradient-to-br from-[#00f2fe] to-emerald-600 blur-[110px] opacity-100"></div>
+                    <div class="absolute -bottom-1/4 -right-1/4 w-[75%] h-[85%] rounded-full bg-gradient-to-br from-teal-400 to-cyan-800 blur-[125px] opacity-100"></div>
+                    <div class="absolute top-1/4 left-1/3 w-[40%] h-[35%] rotate-45 rounded-full bg-violet-400 blur-[100px] opacity-95"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#060913]"></div>
+                </div>
+
+                <div class="w-full flex justify-between items-center z-10 relative">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-teal-400 animate-pulse"></span>
+                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
+                            <span class="text-[10px] font-mono text-gray-400 font-bold uppercase mr-1">Tools:</span>
+                            <img src="canva.png" alt="Canva" class="w-5 h-5 object-contain" title="Canva">
+                        </div>
+                        <button onclick="closeModal('mamas-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
+                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="z-10 relative space-y-4 max-w-4xl">
+                    <span class="text-xs md:text-sm font-black text-teal-400 uppercase tracking-widest block">Brand Presence & Visual Assets</span>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
+                        Mamas
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
+                        Dalla direzione creativa alla gestione quotidiana dei canali social: dare voce e forma all’identità di Mamas nel panorama della movida cittadina.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2) SEZIONE IMMAGINI MAMAS (CLICCABILI) -->
+            <div class="px-8 md:px-16 py-16 space-y-16">
+                <div class="space-y-12">
+                    <div>
+                        <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Mamas Feed Posts (Formato Post 4:5 Layout - Clicca per schermo intero)</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-teal-400/40 transition duration-300">
+                                <img src="Mamas - Post.jpg" alt="Mamas Post Main" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-teal-400/40 transition duration-300">
+                                <img src="Mamas - Post 1.jpg" alt="Mamas Post 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-teal-400/40 transition duration-300">
+                                <img src="Mamas - Post 2.jpg" alt="Mamas Post 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-teal-400/40 transition duration-300">
+                                <img src="Mamas - Post 3.jpg" alt="Mamas Post 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-teal-400/40 transition duration-300">
+                                <img src="Mamas - Post 4.jpg" alt="Mamas Post 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Mamas Stories & Highlights (9:16 Vertical Layout - Clicca per schermo intero)</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Mamas - Storie.jpg" alt="Mamas Storie Cover" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Mamas - Storie 1.jpg" alt="Mamas Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Mamas - Storie 2.jpg" alt="Mamas Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Mamas - Storie 3.jpg" alt="Mamas Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Mamas - Storie 4.jpg" alt="Mamas Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Mamas - Storie 5.jpg" alt="Mamas Storie 5" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Mamas - Storie 6.jpg" alt="Mamas Storie 6" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/10 flex justify-center">
+                    <button onclick="closeModal('mamas-modal')" class="bg-teal-500 hover:bg-teal-400 text-slate-950 font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                        Back to Portfolio Overview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP DETTAGLIO: PILONE (UNICO TOOL: CANVA, IMMAGINI CLICCABILI) -->
+    <div id="pilone-modal" class="glass-modal-overlay" onclick="closeModalOnOverlay(event, 'pilone-modal')">
+        <div class="glass-modal-container">
+            <!-- HEADER CON GLASSMORPHISM E AURORA UI GREEN/SLATE -->
+            <div class="relative w-full h-[60vh] md:h-[65vh] flex flex-col justify-between p-8 md:p-16 overflow-hidden bg-[#020504] border-b border-white/10">
+                <div class="absolute inset-0 z-0 pointer-events-none">
+                    <div class="absolute -top-1/4 -left-1/4 w-[85%] h-[95%] rounded-full bg-gradient-to-br from-emerald-500 to-cyan-600 blur-[110px] opacity-100"></div>
+                    <div class="absolute -bottom-1/4 -right-1/4 w-[75%] h-[85%] rounded-full bg-gradient-to-br from-[#00f5d4] to-teal-800 blur-[110px] opacity-100"></div>
+                    <div class="absolute top-1/4 left-1/3 w-[40%] h-[35%] rotate-45 rounded-full bg-indigo-500 blur-[100px] opacity-95"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#060913]"></div>
+                </div>
+
+                <div class="w-full flex justify-between items-center z-10 relative">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
+                            <span class="text-[10px] font-mono text-gray-400 font-bold uppercase mr-1">Tools:</span>
+                            <img src="canva.png" alt="Canva" class="w-5 h-5 object-contain" title="Canva">
+                        </div>
+                        <button onclick="closeModal('pilone-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
+                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="z-10 relative space-y-4 max-w-4xl">
+                    <span class="text-xs md:text-sm font-black text-emerald-400 uppercase tracking-widest block">Visual Communication System</span>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
+                        Pilone
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
+                        Comunicazione del brand focalizzata su un’estetica elegante e un’ottimizzazione strategica dei canali social per un pubblico di alta gamma.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2) SEZIONE IMMAGINI PILONE (CLICCABILI) -->
+            <div class="px-8 md:px-16 py-16 space-y-16">
+                <div class="space-y-12">
+                    <div>
+                        <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Pilone Social Post Grid (Formato Post 4:5 Layout - Clicca per schermo intero)</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-emerald-400/40 transition duration-300">
+                                <img src="Pilone - Post.jpg" alt="Pilone Post Main" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-emerald-400/40 transition duration-300">
+                                <img src="Pilone - Post 1.jpg" alt="Pilone Post 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-emerald-400/40 transition duration-300">
+                                <img src="Pilone - Post 2.jpg" alt="Pilone Post 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-emerald-400/40 transition duration-300">
+                                <img src="Pilone - Post 3.jpg" alt="Pilone Post 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-emerald-400/40 transition duration-300">
+                                <img src="Pilone - Post 4.jpg" alt="Pilone Post 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Pilone Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Pilone - Storie.jpg" alt="Pilone Storie Cover" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Pilone - Storie 1.jpg" alt="Pilone Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Pilone - Storie 2.jpg" alt="Pilone Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Pilone - Storie 3.jpg" alt="Pilone Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                            <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                                <img src="Pilone - Storie 4.jpg" alt="Pilone Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/10 flex justify-center">
+                    <button onclick="closeModal('pilone-modal')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                        Back to Portfolio Overview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP DETTAGLIO: TORREFAZIONE (IMMAGINI CLICCABILI) -->
+    <div id="torrefazione-modal" class="glass-modal-overlay" onclick="closeModalOnOverlay(event, 'torrefazione-modal')">
+        <div class="glass-modal-container">
+            <!-- HEADER CON GLASSMORPHISM E AURORA UI AMBER CON CONTRASTO VIOLA/AZZURRO -->
+            <div class="relative w-full h-[60vh] md:h-[65vh] flex flex-col justify-between p-8 md:p-16 overflow-hidden bg-[#050302] border-b border-white/10">
+                <div class="absolute inset-0 z-0 pointer-events-none">
+                    <div class="absolute -top-1/4 -left-1/4 w-[85%] h-[95%] rounded-full bg-gradient-to-br from-amber-500 to-orange-700 blur-[130px] opacity-100"></div>
+                    <div class="absolute -bottom-1/4 -right-1/4 w-[75%] h-[85%] rounded-full bg-gradient-to-br from-[#00f2fe] to-transparent blur-[110px] opacity-100"></div>
+                    <div class="absolute top-1/4 left-1/3 w-[40%] h-[35%] rotate-45 rounded-full bg-violet-600 blur-[100px] opacity-95"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#060913]"></div>
+                </div>
+
+                <div class="w-full flex justify-between items-center z-10 relative">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
+                            <span class="text-[10px] font-mono text-gray-400 font-bold uppercase mr-1">Tools:</span>
+                            <img src="canva.png" alt="Canva" class="w-5 h-5 object-contain" title="Canva">
+                        </div>
+                        <button onclick="closeModal('torrefazione-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
+                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="z-10 relative space-y-4 max-w-4xl">
+                    <span class="text-xs md:text-sm font-black text-amber-400 uppercase tracking-widest block">Digital Refresh & Territory</span>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
+                        Torrefazione
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
+                        Esaltare l'esperienza del gusto attraverso una direzione creativa audace: contenuti visivi ad alto impatto emotivo progettati per far parlare il prodotto e stimolare la voglia di assaggio.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2) SEZIONE IMMAGINI TORREFAZIONE (CLICCABILI) -->
+            <div class="px-8 md:px-16 py-16 space-y-16">
+                <div class="space-y-10">
+                    <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Torrefazione Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                        <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                            <img src="Torrefazione - Storie.jpg" alt="Torrefazione Storie" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                            <img src="Torrefazione - Storie 1.jpg" alt="Torrefazione Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                            <img src="Torrefazione - Storie 2.jpg" alt="Torrefazione Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                            <img src="Torrefazione - Storie 3.jpg" alt="Torrefazione Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                            <img src="Torrefazione - Storie 4.jpg" alt="Torrefazione Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                            <img src="Torrefazione - Storie 5.jpg" alt="Torrefazione Storie 5" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/10 flex justify-center">
+                    <button onclick="closeModal('torrefazione-modal')" class="bg-amber-600 hover:bg-amber-500 text-slate-950 font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                        Back to Portfolio Overview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP DETTAGLIO: STELLA MARINA (IMMAGINI CLICCABILI) -->
+    <div id="stella-modal" class="glass-modal-overlay" onclick="closeModalOnOverlay(event, 'stella-modal')">
+        <div class="glass-modal-container">
+            <!-- HEADER CON GLASSMORPHISM E AURORA UI OCEAN BLUE -->
+            <div class="relative w-full h-[60vh] md:h-[65vh] flex flex-col justify-between p-8 md:p-16 overflow-hidden bg-[#020409] border-b border-white/10">
+                <div class="absolute inset-0 z-0 pointer-events-none">
+                    <div class="absolute -top-1/4 -left-1/4 w-[85%] h-[95%] rounded-full bg-gradient-to-br from-blue-500 to-indigo-900 blur-[130px] opacity-100"></div>
+                    <div class="absolute -bottom-1/4 -right-1/4 w-[75%] h-[85%] rounded-full bg-gradient-to-br from-cyan-400 to-teal-700 blur-[110px] opacity-100"></div>
+                    <div class="absolute top-1/4 left-1/3 w-[40%] h-[35%] rotate-45 rounded-full bg-purple-500 blur-[100px] opacity-95"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#060913]"></div>
+                </div>
+
+                <div class="w-full flex justify-between items-center z-10 relative">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse"></span>
+                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
+                            <span class="text-[10px] font-mono text-gray-400 font-bold uppercase mr-1">Tools:</span>
+                            <img src="canva.png" alt="Canva" class="w-5 h-5 object-contain" title="Canva">
+                        </div>
+                        <button onclick="closeModal('stella-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
+                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="z-10 relative space-y-4 max-w-4xl">
+                    <span class="text-xs md:text-sm font-black text-sky-400 uppercase tracking-widest block">Restyling & Promotional Assets</span>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
+                        Stella Marina
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
+                        Esaltare l'eccellenza del pescato locale attraverso un’estetica ricercata e una narrazione digitale che coniuga la freschezza del mare con la raffinatezza di un’esperienza culinaria esclusiva.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2) SEZIONE IMMAGINI STELLA MARINA (CLICCABILI) -->
+            <div class="px-8 md:px-16 py-16 space-y-16">
+                <div class="space-y-10">
+                    <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Stella Marina Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                        <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                            <img src="Stella Marina - Storie.jpg" alt="Stella Marina Storie" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                            <img src="Stella Marina - Storie 1.jpg" alt="Stella Marina Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                            <img src="Stella Marina - Storie 2.jpg" alt="Stella Marina Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                            <img src="Stella Marina - Storie 3.jpg" alt="Stella Marina Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
+                            <img src="Stella Marina - Storie 4.jpg" alt="Stella Marina Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/10 flex justify-center">
+                    <button onclick="closeModal('stella-modal')" class="bg-sky-600 hover:bg-sky-500 text-white font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                        Back to Portfolio Overview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX PER VISUALIZZAZIONE IMMAGINE A SCHERMO INTERO CON FORMATO FISSO -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-black/90 z-[200] hidden flex-col items-center justify-center p-4 cursor-zoom-out select-none" onclick="closeLightbox()">
+        <div class="relative max-w-5xl max-h-[85vh] flex items-center justify-center pointer-events-auto" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Fullscreen view" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-white/10">
+            <button onclick="closeLightbox()" class="absolute -top-12 right-0 bg-white/10 hover:bg-white/20 text-white w-10 h-10 rounded-full flex items-center justify-center text-2xl font-bold cursor-pointer transition">×</button>
+        </div>
+    </div>
+
+    <!-- INTERSECTION OBSERVER, LIGHTBOX & MODAL LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const gridBoxes = document.querySelectorAll('.grid-box-trigger');
+            const observerOptions = { root: null, rootMargin: '-8% 0px -12% 0px', threshold: 0.1 };
+            const bentoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active-grid-box'); });
+            }, observerOptions);
+            gridBoxes.forEach(box => bentoObserver.observe(box));
+        });
+
+        // Funzioni per l'apertura e chiusura del Pop-up con blocco dello scroll
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.classList.add('modal-open');
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.classList.remove('modal-open');
+            }
+        }
+
+        // Gestione della chiusura del Pop-up cliccando all'esterno del container
+        function closeModalOnOverlay(event, modalId) {
+            if (event.target.id === modalId) {
+                closeModal(modalId);
+            }
+        }
+
+        // Gestione del Lightbox a schermo intero mantenendo il formato fisso dell'immagine
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            if (lightbox && img) {
+                img.src = src;
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.classList.add('modal-open');
+            }
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox-modal');
+            if (lightbox) {
+                lightbox.classList.remove('flex');
+                lightbox.classList.add('hidden');
+                
+                // Rimuove la classe per bloccare lo scroll solo se non ci sono altri modal attivi
+                const activeModals = document.querySelectorAll('.glass-modal-overlay.active');
+                if (activeModals.length === 0) {
+                    document.body.classList.remove('modal-open');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
