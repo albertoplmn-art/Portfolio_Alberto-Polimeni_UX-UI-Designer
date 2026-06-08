@@ -251,35 +251,37 @@
     <div class="hero-gradient-box hero-rounded-bottom w-full min-h-[96vh] flex flex-col justify-between px-8 md:px-24 pb-12 pt-14 z-10">
         
         <!-- FOTO HERO CON VALORI DI CONTROLUCE (SCHIARITI) -->
-        <img src="Foto profilo oscurata.png" alt="Alberto Portrait" class="hero-backlight-silhouette" id="hero-avatar">
+        <img src="Foto-profilo-oscurata.png" alt="Alberto Portrait" class="hero-backlight-silhouette" id="hero-avatar">
 
         <header class="w-full flex justify-end items-center z-30 relative pt-2">
             <div class="flex items-center gap-8 text-base md:text-lg font-black tracking-[0.15em] text-gray-200 uppercase">
-                <a href="#lang-en" class="flex items-center gap-2 font-black text-white hover:text-cyan-400 transition tracking-normal normal-case text-base md:text-lg">
-                    ENG 
-                    <svg class="w-6 h-4 md:w-6.5 md:h-4.5 rounded-xs shadow-md" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
-                        <clipPath id="s"><rect width="60" height="30"/></clipPath>
-                        <g clip-path="url(#s)">
-                            <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
-                            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
-                            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
-                            <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
-                            <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
-                        </g>
-                    </svg>
-                </a>
-                <a href="#about" class="hover:text-cyan-400 font-extrabold transition">About</a>
-                <a href="#projects" class="hover:text-cyan-400 font-extrabold transition">Projects</a>
+                <button id="lang-toggle" class="flex items-center gap-2 font-black text-white hover:text-cyan-400 transition tracking-normal normal-case text-base md:text-lg cursor-pointer bg-transparent border-none outline-none">
+                    <span id="lang-label">ENG</span> 
+                    <span id="lang-flag-container">
+                        <svg class="w-6 h-4 md:w-6.5 md:h-4.5 rounded-xs shadow-md" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                            <clipPath id="s"><rect width="60" height="30"/></clipPath>
+                            <g clip-path="url(#s)">
+                                <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+                                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+                                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+                                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+                                <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+                            </g>
+                        </svg>
+                    </span>
+                </button>
+                <a href="#about" data-i18n="navAbout" class="hover:text-cyan-400 font-extrabold transition">About</a>
+                <a href="#projects" data-i18n="navProjects" class="hover:text-cyan-400 font-extrabold transition">Projects</a>
                 <a href="mailto:albertoplmn@gmail.com" class="bg-white text-slate-950 px-7 py-3 rounded-full font-black hover:bg-cyan-400 hover:text-white transition flex items-center gap-2.5 normal-case tracking-normal text-base md:text-lg shadow-2xl transform hover:scale-105 active:scale-95 duration-200">
-                    Get in touch <span>→</span>
+                    <span data-i18n="navContact">Get in touch</span> <span>→</span>
                 </a>
             </div>
         </header>
 
         <main class="w-full z-20 relative my-auto select-none">
             <div class="space-y-2 md:space-y-4 max-w-full">
-                <p class="hero-tag-force text-sm sm:text-base font-black text-cyan-400 uppercase m-0">Hey, I'm</p>
-                <h1 class="hero-title-force text-5xl sm:text-7xl font-black text-white uppercase tracking-tighter m-0">
+                <p data-i18n="heroTag" class="hero-tag-force text-sm sm:text-base font-black text-cyan-400 uppercase m-0">Hey, I'm</p>
+                <h1 data-i18n="heroTitle" class="hero-title-force text-5xl sm:text-7xl font-black text-white uppercase tracking-tighter m-0">
                     Alberto<br>Polimeni<span class="text-white">.</span>
                 </h1>
                 <p class="hero-subtitle-force text-3xl sm:text-5xl font-black tracking-tight m-0 pt-2">
@@ -291,23 +293,23 @@
         <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-6 border-t border-white/10 z-20 relative">
             <div class="space-y-1">
                 <span class="grid-number-force text-xs lg:text-sm font-mono text-cyan-400 block font-black tracking-wider">#01</span>
-                <span class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">User Research & Flows</span>
-                <span class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Interviews, Card Sorting & Personas</span>
+                <span data-i18n="grid1Title" class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">User Research & Flows</span>
+                <span data-i18n="grid1Desc" class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Interviews, Card Sorting & Personas</span>
             </div>
             <div class="space-y-1">
                 <span class="grid-number-force text-xs lg:text-sm font-mono text-violet-400 block font-black tracking-wider">#02</span>
-                <span class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">High-Fidelity Prototyping</span>
-                <span class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Pixel-perfect UI & interactive systems</span>
+                <span data-i18n="grid2Title" class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">High-Fidelity Prototyping</span>
+                <span data-i18n="grid2Desc" class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Pixel-perfect UI & interactive systems</span>
             </div>
             <div class="space-y-1">
                 <span class="grid-number-force text-xs lg:text-sm font-mono text-cyan-400 block font-black tracking-wider">#03</span>
-                <span class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">Next-Gen Prototyping</span>
-                <span class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Workflow optimization via generative AI</span>
+                <span data-i18n="grid3Title" class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">Next-Gen Prototyping</span>
+                <span data-i18n="grid3Desc" class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Workflow optimization via generative AI</span>
             </div>
             <div class="space-y-1">
                 <span class="grid-number-force text-xs lg:text-sm font-mono text-violet-400 block font-black tracking-wider">#04</span>
-                <span class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">Brand & Visual Systems</span>
-                <span class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Scalable visual identity & brand consistency</span>
+                <span data-i18n="grid4Title" class="grid-title-force text-md lg:text-xl font-extrabold text-white tracking-wide block leading-tight">Brand & Visual Systems</span>
+                <span data-i18n="grid4Desc" class="grid-desc-force text-xs lg:text-sm text-gray-400 block pt-0.5 font-normal">Scalable visual identity & brand consistency</span>
             </div>
         </div>
     </div>
@@ -318,18 +320,18 @@
             <div class="w-full grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
                 <div class="w-full flex justify-center md:justify-start md:col-span-3 overflow-visible">
                     <div class="profile-container-aurora max-w-xs h-80 md:h-[460px] overflow-visible">
-                        <img src="foto profilo 1.png" alt="Alberto Polimeni Portrait" class="profile-floating-fade transform scale-105 origin-center" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'text-xs text-gray-500 font-mono text-center\'>Immagine non trovata</div>'">
+                        <img src="foto-profilo 1.png" alt="Alberto Polimeni Portrait" class="profile-floating-fade transform scale-105 origin-center" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'text-xs text-gray-500 font-mono text-center\'>Immagine non trovata</div>'">
                     </div>
                 </div>
                 <div class="w-full md:col-span-6 space-y-5 md:px-4">
                     <div>
-                        <span class="inline-block bg-white text-slate-950 font-black text-lg md:text-xl uppercase tracking-wider px-4 py-1.5 mb-5 rounded-xs select-none">About me</span>
-                        <p class="text-lg md:text-xl lg:text-2xl font-semibold text-gray-200 leading-relaxed">
+                        <span data-i18n="aboutTag" class="inline-block bg-white text-slate-950 font-black text-lg md:text-xl uppercase tracking-wider px-4 py-1.5 mb-5 rounded-xs select-none">About me</span>
+                        <p data-i18n="aboutText1" class="text-lg md:text-xl lg:text-2xl font-semibold text-gray-200 leading-relaxed">
                             Sono un <span class="text-cyan-400 font-bold">UI/UX Designer</span> con un background solido e strutturato: unisco una Laurea Triennale in Design a un'esperienza biennale sul campo come <span class="text-violet-400 font-bold">Graphic Designer</span>. Attualmente sto completando il mio percorso di specializzazione presso il <span class="text-white font-bold underline decoration-cyan-400 decoration-2">Talent Garden di Milano</span>.
                         </p>
                     </div>
-                    <p class="text-sm md:text-base text-gray-400 leading-relaxed font-normal">
-                        Il mio obiettivo è rendere i prodotti digitali semplici da usare, intuitivi ed esteticamente straordinari. Nel mio lavoro unisco logica e creatività, velocizzando la progettazione grazie all'uso di strumenti di Intelligenza Artificiale di ultima generazione per responder in modo preciso e immediato ai bisogni reali delle persone.
+                    <p data-i18n="aboutText2" class="text-sm md:text-base text-gray-400 leading-relaxed font-normal">
+                        Il mio obiettivo è rendere i prodotti digitali semplici da usare, intuitivi ed esteticamente straordinari. Nel mio lavoro unisco logica e creatività, velocizzando la progettazione grazie all'uso di strumenti di Intelligenza Artificiale di ultima generazione per rispondere in modo preciso e immediato ai bisogni reali delle persone.
                     </p>
                 </div>
                 
@@ -386,7 +388,7 @@
         <section id="projects" class="w-full pb-16 pt-16 px-6 md:px-16 overflow-visible">
             <div class="w-full mb-10 pl-2">
                 <p class="text-xs font-mono text-cyan-400 font-black uppercase tracking-widest mb-1">02 / Portfolio</p>
-                <h2 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter">Selezionati: Progetti</h2>
+                <h2 data-i18n="projectsTitle" class="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter">Selezionati: Progetti</h2>
             </div>
             
             <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
@@ -396,14 +398,14 @@
                         <div class="aurora-mesh mesh-teal-blue"></div>
                         <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
                             <div class="flex items-center justify-between flex-wrap gap-2">
-                                <p class="text-xs font-mono text-cyan-300 font-black uppercase tracking-widest">Project Work — Case Study</p>
+                                <p data-i18n="libTag" class="text-xs font-mono text-cyan-300 font-black uppercase tracking-widest">Project Work — Case Study</p>
                                 <div class="flex gap-1.5">
                                     <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-cyan-300 font-bold uppercase">Strumenti AI</span>
                                     <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-cyan-300 font-bold uppercase">Figma</span>
                                 </div>
                             </div>
                             <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Libraccio.it</h2>
-                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Ottimizzazione dell'esperienza e-commerce, flussi d'acquisto e architettura dell'informazione user-centered.</p>
+                            <p data-i18n="libDesc" class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Ottimizzazione dell'esperienza e-commerce, flussi d'acquisto e architettura dell'informazione user-centered.</p>
                         </div>
                         <div class="fan-container-bento">
                             <video class="project-card c1 object-cover" autoplay loop muted playsinline><source src="Libraccio_programma fedeltà.mp4" type="video/mp4"></video>
@@ -419,19 +421,19 @@
                         <div class="aurora-mesh mesh-violet-blue"></div>
                         <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
                             <div class="flex items-center justify-between flex-wrap gap-2">
-                                <p class="text-xs font-mono text-violet-300 font-black uppercase tracking-widest">Experience & Branding</p>
+                                <p data-i18n="fracTag" class="text-xs font-mono text-violet-300 font-black uppercase tracking-widest">Experience & Branding</p>
                                 <div class="flex gap-1.5">
                                     <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-violet-300 font-bold uppercase">Illustrator</span>
                                     <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-violet-300 font-bold uppercase">Photoshop</span>
                                 </div>
                             </div>
                             <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Frac Festival</h2>
-                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Tesi di laurea — Progettazione dell'identità visiva digitale per il festival di musica e arte.</p>
+                            <p data-i18n="fracDesc" class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Tesi di laurea — Progettazione dell'identità visiva digitale per il festival di musica e arte.</p>
                         </div>
                         <div class="fan-container-bento">
-                            <img src="Frac festival 2024- Kit Basic.jpg" alt="Frac Sfondo" class="project-card c1 object-cover">
-                            <img src="Frac Festival 2023, Summer KIT.jpg" alt="Frac Centro" class="project-card c2 object-cover">
-                            <img src="Frac festival 2024- Midnight Kit.jpg" alt="Frac Avanti" class="project-card c3 object-cover">
+                            <img src="Frac-festival-2024-Kit Basic.jpg" alt="Frac Sfondo" class="project-card c1 object-cover">
+                            <img src="Frac-Festival-2023,-Summer-KIT.jpg" alt="Frac Centro" class="project-card c2 object-cover">
+                            <img src="Frac-festival-2024-Midnight-Kit.jpg" alt="Frac Avanti" class="project-card c3 object-cover">
                         </div>
                     </div>
                 </div>
@@ -443,52 +445,52 @@
             <div class="w-full mb-10 pl-2">
                 <p class="text-xs font-mono text-cyan-400 font-black uppercase tracking-widest mb-1">03 / Portfolio</p>
                 <h2 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter">
-                    Selezionati: Graphic Designer 
-                    <span class="block text-sm md:text-lg font-bold text-gray-400 normal-case tracking-normal mt-1">(Social Media Management)</span>
+                    <span data-i18n="graphicTitle">Selezionati: Graphic Designer</span> 
+                    <span data-i18n="graphicSubtitle" class="block text-sm md:text-lg font-bold text-gray-400 normal-case tracking-normal mt-1">(Social Media Management)</span>
                 </h2>
             </div>
             
             <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
-                <!-- PROGETTO 3: MAMAS (UNICO TOOL: CANVA) -->
+                <!-- PROGETTO 3: MAMAS -->
                 <div class="grid-box-trigger w-full" onclick="openModal('mamas-modal')">
                     <div class="glass-bento-box project-height p-8 md:p-10">
                         <div class="aurora-mesh mesh-teal-blue"></div>
                         <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
                             <div class="flex items-center justify-between flex-wrap gap-2">
-                                <p class="text-xs font-mono text-cyan-300 font-black uppercase tracking-widest">Social Media Design</p>
+                                <p data-i18n="mamasTag" class="text-xs font-mono text-cyan-300 font-black uppercase tracking-widest">Social Media Design</p>
                                 <div class="flex gap-1.5">
                                     <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-cyan-300 font-bold uppercase">Canva</span>
                                 </div>
                             </div>
                             <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Mamas</h2>
-                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Sviluppo di contenuti visuali e strategia di comunicazione per la presenza digital del brand.</p>
+                            <p data-i18n="mamasDesc" class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Sviluppo di contenuti visuali e strategia di comunicazione per la presenza digital del brand.</p>
                         </div>
                         <div class="fan-container-bento">
-                            <img src="Mamas - Storie 1.jpg" alt="Mamas Story 1" class="project-card c1 object-cover">
-                            <img src="Mamas - Post 1.jpg" alt="Mamas Post 1" class="project-card c2 object-cover">
-                            <img src="Mamas - Post.jpg" alt="Mamas Cover" class="project-card c3 object-cover">
+                            <img src="Mamas-Storie1.jpg" alt="Mamas Story 1" class="project-card c1 object-cover">
+                            <img src="Mamas-Post1.jpg" alt="Mamas Post 1" class="project-card c2 object-cover">
+                            <img src="Mamas-Post.jpg" alt="Mamas Cover" class="project-card c3 object-cover">
                         </div>
                     </div>
                 </div>
 
-                <!-- PROGETTO 4: PILONE (UNICO TOOL: CANVA) -->
+                <!-- PROGETTO 4: PILONE -->
                 <div class="grid-box-trigger w-full" onclick="openModal('pilone-modal')">
                     <div class="glass-bento-box project-height p-8 md:p-10">
                         <div class="aurora-mesh mesh-violet-blue"></div>
                         <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
                             <div class="flex items-center justify-between flex-wrap gap-2">
-                                <p class="text-xs font-mono text-violet-300 font-black uppercase tracking-widest">Visual Communication</p>
+                                <p data-i18n="piloneTag" class="text-xs font-mono text-violet-300 font-black uppercase tracking-widest">Visual Communication</p>
                                 <div class="flex gap-1.5">
                                     <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-violet-300 font-bold uppercase">Canva</span>
                                 </div>
                             </div>
                             <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Pilone</h2>
-                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Progettazione grafica editoriale e coordinamento d'immagine coordinata per piattaforme web.</p>
+                            <p data-i18n="piloneDesc" class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Progettazione grafica editoriale e coordinamento d'immagine coordinata per piattaforme web.</p>
                         </div>
                         <div class="fan-container-bento">
-                            <img src="Pilone - Storie 1.jpg" alt="Pilone Story 1" class="project-card c1 object-cover">
-                            <img src="Pilone - Post 1.jpg" alt="Pilone Post 1" class="project-card c2 object-cover">
-                            <img src="Pilone - Post.jpg" alt="Pilone Cover" class="project-card c3 object-cover">
+                            <img src="Pilone-Storie1.jpg" alt="Pilone Story 1" class="project-card c1 object-cover">
+                            <img src="Pilone-Post1.jpg" alt="Pilone Post 1" class="project-card c2 object-cover">
+                            <img src="Pilone-Post.jpg" alt="Pilone Cover" class="project-card c3 object-cover">
                         </div>
                     </div>
                 </div>
@@ -499,19 +501,19 @@
                         <div class="aurora-mesh mesh-teal-blue"></div>
                         <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
                             <div class="flex items-center justify-between flex-wrap gap-2">
-                                <p class="text-xs font-mono text-cyan-300 font-black uppercase tracking-widest">Digital Art Direction</p>
+                                <p data-i18n="torrefazioneTag" class="text-xs font-mono text-cyan-300 font-black uppercase tracking-widest">Digital Art Direction</p>
                                 <div class="flex gap-1.5">
                                     <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-cyan-300 font-bold uppercase">Canva</span>
                                     <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-cyan-300 font-bold uppercase">Branding</span>
                                 </div>
                             </div>
                             <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Torrefazione</h2>
-                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Rinfresco d'immagine digitale per una torrefazione artigianale focalizzata sull'identità e sul territorio.</p>
+                            <p data-i18n="torrefazioneDesc" class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Rinfresco d'immagine digitale per una torrefazione artigianale focalizzata sull'identità e sul territorio.</p>
                         </div>
                         <div class="fan-container-bento">
-                            <img src="Torrefazione - Storie 1.jpg" alt="Torrefazione Story" class="project-card c1 object-cover">
-                            <img src="Torrefazione - Storie 2.jpg" alt="Torrefazione Story 2" class="project-card c2 object-cover">
-                            <img src="Torrefazione - Storie.jpg" alt="Torrefazione Cover" class="project-card c3 object-cover">
+                            <img src="Torrefazione-Storie-1.jpg" alt="Torrefazione Story" class="project-card c1 object-cover">
+                            <img src="Torrefazione-Storie2.jpg" alt="Torrefazione Story 2" class="project-card c2 object-cover">
+                            <img src="Torrefazione-Storie.jpg" alt="Torrefazione Cover" class="project-card c3 object-cover">
                         </div>
                     </div>
                 </div>
@@ -522,19 +524,19 @@
                         <div class="aurora-mesh mesh-violet-blue"></div>
                         <div class="space-y-3 z-10 pl-2 md:pl-4 relative">
                             <div class="flex items-center justify-between flex-wrap gap-2">
-                                <p class="text-xs font-mono text-violet-300 font-black uppercase tracking-widest">Brand Identity</p>
+                                <p data-i18n="stellaTag" class="text-xs font-mono text-violet-300 font-black uppercase tracking-widest">Brand Identity</p>
                                 <div class="flex gap-1.5">
                                     <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-violet-300 font-bold uppercase">Canva</span>
                                     <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-violet-300 font-bold uppercase">Branding</span>
                                 </div>
                             </div>
                             <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none m-0">Stella Marina</h2>
-                            <p class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Restyling visuale e design system completo per canali promozionali e d'accoglienza.</p>
+                            <p data-i18n="stellaDesc" class="text-base font-medium text-gray-300 max-w-xl leading-relaxed m-0">Restyling visuale e design system completo per canali promozionali e d'accoglienza.</p>
                         </div>
                         <div class="fan-container-bento">
-                            <img src="Stella Marina - Storie 1.jpg" alt="Stella Marina Story 1" class="project-card c1 object-cover">
-                            <img src="Stella Marina - Storie 2.jpg" alt="Stella Marina Story 2" class="project-card c2 object-cover">
-                            <img src="Stella Marina - Storie.jpg" alt="Stella Marina Cover" class="project-card c3 object-cover">
+                            <img src="Stella-Marina-Storie1.jpg" alt="Stella Marina Story 1" class="project-card c1 object-cover">
+                            <img src="Stella-Marina-Storie2.jpg" alt="Stella Marina Story 2" class="project-card c2 object-cover">
+                            <img src="Stella-Marina-Storie.jpg" alt="Stella Marina Cover" class="project-card c3 object-cover">
                         </div>
                     </div>
                 </div>
@@ -558,7 +560,7 @@
                 <div class="w-full flex justify-between items-center z-10 relative">
                     <div class="flex items-center gap-2">
                         <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Project Work in Talent Garden with Libraccio.it</p>
+                        <p data-i18n="libModalHeader" class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Project Work in Talent Garden with Libraccio.it</p>
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
@@ -567,7 +569,7 @@
                             <img src="chatgpt.png" alt="ChatGPT" class="w-5 h-5 object-contain" title="ChatGPT / Generative AI">
                         </div>
                         <button onclick="closeModal('libraccio-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
-                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                            <span data-i18n="closeProject">Close Project</span> <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
                         </button>
                     </div>
                 </div>
@@ -577,7 +579,7 @@
                     <h2 class="text-4xl sm:text-6xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
                         Checkout &<br>Engagement Redesign
                     </h2>
-                    <p class="text-base sm:text-lg text-gray-300 max-w-2xl font-normal tracking-wide mt-2">
+                    <p data-i18n="libModalDesc" class="text-base sm:text-lg text-gray-300 max-w-2xl font-normal tracking-wide mt-2">
                         Ottimizzazione strutturale della user journey di acquisto, integrazione di dinamiche di gamification e ristrutturazione dei flussi informativi.
                     </p>
                 </div>
@@ -587,7 +589,7 @@
             <div class="px-8 md:px-16 py-16 space-y-16">
                 <div class="space-y-10">
                     <div class="w-full mb-2">
-                        <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider">Visual Deliverables & Interface Systems</h4>
+                        <h4 data-i18n="deliverables" class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider">Visual Deliverables & Interface Systems</h4>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -651,7 +653,7 @@
                 </div>
 
                 <div class="pt-8 border-t border-white/10 flex justify-center">
-                    <button onclick="closeModal('libraccio-modal')" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                    <button onclick="closeModal('libraccio-modal')" data-i18n="backToOverview" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
                         Back to Portfolio Overview
                     </button>
                 </div>
@@ -674,7 +676,7 @@
                 <div class="w-full flex justify-between items-center z-10 relative">
                     <div class="flex items-center gap-2">
                         <span class="w-2.5 h-2.5 rounded-full bg-violet-400 animate-pulse"></span>
-                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Graduation Project — Branding & Experience</p>
+                        <p data-i18n="fracModalHeader" class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Graduation Project — Branding & Experience</p>
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
@@ -683,17 +685,17 @@
                             <img src="photoshop.png" alt="Photoshop" class="w-5 h-5 object-contain" title="Adobe Photoshop">
                         </div>
                         <button onclick="closeModal('frac-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
-                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                            <span data-i18n="closeProject">Close Project</span> <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
                         </button>
                     </div>
                 </div>
 
                 <div class="z-10 relative space-y-4 max-w-4xl">
                     <span class="text-xs md:text-sm font-black text-violet-400 uppercase tracking-widest block">Frac Festival</span>
-                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
+                    <h2 data-i18n="fracModalSub" class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
                         Rebranding visivo per le edizioni 2023 e 2024
                     </h2>
-                    <p class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
+                    <p data-i18n="fracModalDesc" class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
                         Progettare l'immaginario del festival tra identità digitale e design di prodotto.
                     </p>
                 </div>
@@ -710,63 +712,61 @@
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
-                                <img src="Frac Festival 2023, Summer KIT.jpg" alt="Frac Summer Kit 2023" class="w-full h-auto block">
+                                <img src="Frac-Festival-2023,-Summer-KIT.jpg" alt="Frac Summer Kit 2023" class="w-full h-auto block">
                                 <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Summer KIT</div>
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
-                                <img src="Frac Festival 2023, Kid's KIT.jpg" alt="Frac Kids Kit 2023" class="w-full h-auto block">
+                                <img src="Frac-Festival-2023,-Kid's KIT.jpg" alt="Frac Kids Kit 2023" class="w-full h-auto block">
                                 <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Kid's KIT</div>
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
-                                <img src="Frac Festival 2023, Pochette Beauty.jpg" alt="Frac Pochette Beauty 2023" class="w-full h-auto block">
+                                <img src="Frac-Festival-2023,-Pochette-Beauty.jpg" alt="Frac Pochette Beauty 2023" class="w-full h-auto block">
                                 <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Pochette Beauty</div>
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
-                                <img src="Frac Festival 2023, Wild KIT.jpg" alt="Frac Wild Kit 2023" class="w-full h-auto block">
+                                <img src="Frac-Festival-2023,-Wild-KIT.jpg" alt="Frac Wild Kit 2023" class="w-full h-auto block">
                                 <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Wild KIT</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- SEZIONE EDIZIONE 2024 (SCAMBIATE POSIZIONI WILD KIT E KIT BASIC) -->
+                    <!-- SEZIONE EDIZIONE 2024 -->
                     <div class="space-y-6">
                         <div class="flex items-center gap-4">
                             <h4 class="text-xl font-black text-cyan-400 uppercase tracking-widest font-mono">Edizione 2024</h4>
                             <div class="h-px bg-white/10 flex-grow"></div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                            <!-- Inserito Wild KIT al posto di Kit Basic -->
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
-                                <img src="Frac festival 2024- Wild KIT.jpg" alt="Frac Wild Kit 2024" class="w-full h-auto block">
+                                <img src="Frac-festival-2024-Wild-KIT.jpg" alt="Frac Wild Kit 2024" class="w-full h-auto block">
                                 <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Wild Kit</div>
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
-                                <img src="Frac festival 2024- Midnight Kit.jpg" alt="Frac Midnight Kit 2024" class="w-full h-auto block">
+                                <img src="Frac-festival-2024-Midnight-Kit.jpg" alt="Frac Midnight Kit 2024" class="w-full h-auto block">
                                 <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Midnight Kit</div>
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
-                                <img src="Frac festival 2024- Kids Kit.jpg" alt="Frac Kids Kit 2024" class="w-full h-auto block">
+                                <img src="Frac-festival-2024- Kids-Kit.jpg" alt="Frac Kids Kit 2024" class="w-full h-auto block">
                                 <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Kids Kit</div>
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
-                                <img src="Frac festival 2024- Tote bag.jpg" alt="Frac Tote Bag 2024" class="w-full h-auto block">
+                                <img src="Frac-festival-2024-Tote-bag.jpg" alt="Frac Tote Bag 2024" class="w-full h-auto block">
                                 <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Tote Bag</div>
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden relative group">
-                                <img src="Frac festival 2024- T-shirt.jpg" alt="Frac T-Shirt 2024" class="w-full h-auto block">
+                                <img src="Frac-festival-2024-T-shirt.jpg" alt="Frac T-Shirt 2024" class="w-full h-auto block">
                                 <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-xs font-mono text-gray-300">T-Shirt</div>
                             </div>
                         </div>
-                        <!-- Inserito Kit Basic al posto di Wild KIT in fondo a tutta larghezza -->
                         <div class="w-full bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden shadow-2xl relative">
-                            <img src="Frac festival 2024- Kit Basic.jpg" alt="Frac Kit Basic 2024 Landscape" class="w-full h-auto block">
+                            <img src="Frac-festival-2024-Kit Basic.jpg" alt="Frac Kit Basic 2024 Landscape" class="w-full h-auto block">
                             <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-mono text-gray-300">Kit Basic 2024</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="pt-8 border-t border-white/10 flex justify-center">
-                    <button onclick="closeModal('frac-modal')" class="bg-violet-600 hover:bg-violet-500 text-white font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                    <button onclick="closeModal('frac-modal')" data-i18n="backToOverview" class="bg-violet-600 hover:bg-violet-500 text-white font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
                         Back to Portfolio Overview
                     </button>
                 </div>
@@ -774,7 +774,7 @@
         </div>
     </div>
 
-    <!-- POPUP DETTAGLIO: MAMAS (UNICO TOOL: CANVA, IMMAGINI CLICCABILI) -->
+    <!-- POPUP DETTAGLIO: MAMAS -->
     <div id="mamas-modal" class="glass-modal-overlay" onclick="closeModalOnOverlay(event, 'mamas-modal')">
         <div class="glass-modal-container">
             <!-- HEADER CON GLASSMORPHISM E AURORA UI TEAL -->
@@ -789,7 +789,7 @@
                 <div class="w-full flex justify-between items-center z-10 relative">
                     <div class="flex items-center gap-2">
                         <span class="w-2.5 h-2.5 rounded-full bg-teal-400 animate-pulse"></span>
-                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
+                        <p data-i18n="mamasModalHeader" class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
@@ -797,7 +797,7 @@
                             <img src="canva.png" alt="Canva" class="w-5 h-5 object-contain" title="Canva">
                         </div>
                         <button onclick="closeModal('mamas-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
-                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                            <span data-i18n="closeProject">Close Project</span> <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
                         </button>
                     </div>
                 </div>
@@ -807,7 +807,7 @@
                     <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
                         Mamas
                     </h2>
-                    <p class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
+                    <p data-i18n="mamasModalDesc" class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
                         Dalla direzione creativa alla gestione quotidiana dei canali social: dare voce e forma all’identità di Mamas nel panorama della movida cittadina.
                     </p>
                 </div>
@@ -817,56 +817,56 @@
             <div class="px-8 md:px-16 py-16 space-y-16">
                 <div class="space-y-12">
                     <div>
-                        <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Mamas Feed Posts (Formato Post 4:5 Layout - Clicca per schermo intero)</h4>
+                        <h4 data-i18n="mamasPostHeader" class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Mamas Feed Posts (Formato Post 4:5 Layout - Clicca per schermo intero)</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-teal-400/40 transition duration-300">
-                                <img src="Mamas - Post.jpg" alt="Mamas Post Main" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas-Post.jpg" alt="Mamas Post Main" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-teal-400/40 transition duration-300">
-                                <img src="Mamas - Post 1.jpg" alt="Mamas Post 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas-Post1.jpg" alt="Mamas Post 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-teal-400/40 transition duration-300">
-                                <img src="Mamas - Post 2.jpg" alt="Mamas Post 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas - Post2.jpg" alt="Mamas Post 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-teal-400/40 transition duration-300">
-                                <img src="Mamas - Post 3.jpg" alt="Mamas Post 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas-Post3.jpg" alt="Mamas Post 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-teal-400/40 transition duration-300">
-                                <img src="Mamas - Post 4.jpg" alt="Mamas Post 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas-Post4.jpg" alt="Mamas Post 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Mamas Stories & Highlights (9:16 Vertical Layout - Clicca per schermo intero)</h4>
+                        <h4 data-i18n="mamasStoryHeader" class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Mamas Stories & Highlights (9:16 Vertical Layout - Clicca per schermo intero)</h4>
                         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Mamas - Storie.jpg" alt="Mamas Storie Cover" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas-Storie.jpg" alt="Mamas Storie Cover" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Mamas - Storie 1.jpg" alt="Mamas Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas-Storie1.jpg" alt="Mamas Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Mamas - Storie 2.jpg" alt="Mamas Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas-Storie2.jpg" alt="Mamas Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Mamas - Storie 3.jpg" alt="Mamas Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas-Storie3.jpg" alt="Mamas Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Mamas - Storie 4.jpg" alt="Mamas Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas-Storie4.jpg" alt="Mamas Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Mamas - Storie 5.jpg" alt="Mamas Storie 5" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas-Storie5.jpg" alt="Mamas Storie 5" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Mamas - Storie 6.jpg" alt="Mamas Storie 6" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Mamas-Storie6.jpg" alt="Mamas Storie 6" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="pt-8 border-t border-white/10 flex justify-center">
-                    <button onclick="closeModal('mamas-modal')" class="bg-teal-500 hover:bg-teal-400 text-slate-950 font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                    <button onclick="closeModal('mamas-modal')" data-i18n="backToOverview" class="bg-teal-500 hover:bg-teal-400 text-slate-950 font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
                         Back to Portfolio Overview
                     </button>
                 </div>
@@ -874,7 +874,7 @@
         </div>
     </div>
 
-    <!-- POPUP DETTAGLIO: PILONE (UNICO TOOL: CANVA, IMMAGINI CLICCABILI) -->
+    <!-- POPUP DETTAGLIO: PILONE -->
     <div id="pilone-modal" class="glass-modal-overlay" onclick="closeModalOnOverlay(event, 'pilone-modal')">
         <div class="glass-modal-container">
             <!-- HEADER CON GLASSMORPHISM E AURORA UI GREEN/SLATE -->
@@ -889,7 +889,7 @@
                 <div class="w-full flex justify-between items-center z-10 relative">
                     <div class="flex items-center gap-2">
                         <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
+                        <p data-i18n="piloneModalHeader" class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
@@ -897,7 +897,7 @@
                             <img src="canva.png" alt="Canva" class="w-5 h-5 object-contain" title="Canva">
                         </div>
                         <button onclick="closeModal('pilone-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
-                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                            <span data-i18n="closeProject">Close Project</span> <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
                         </button>
                     </div>
                 </div>
@@ -907,7 +907,7 @@
                     <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
                         Pilone
                     </h2>
-                    <p class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
+                    <p data-i18n="piloneModalDesc" class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
                         Comunicazione del brand focalizzata su un’estetica elegante e un’ottimizzazione strategica dei canali social per un pubblico di alta gamma.
                     </p>
                 </div>
@@ -917,50 +917,50 @@
             <div class="px-8 md:px-16 py-16 space-y-16">
                 <div class="space-y-12">
                     <div>
-                        <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Pilone Social Post Grid (Formato Post 4:5 Layout - Clicca per schermo intero)</h4>
+                        <h4 data-i18n="pilonePostHeader" class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Pilone Social Post Grid (Formato Post 4:5 Layout - Clicca per schermo intero)</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-emerald-400/40 transition duration-300">
-                                <img src="Pilone - Post.jpg" alt="Pilone Post Main" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Pilone-Post.jpg" alt="Pilone Post Main" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-emerald-400/40 transition duration-300">
-                                <img src="Pilone - Post 1.jpg" alt="Pilone Post 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Pilone-Post1.jpg" alt="Pilone Post 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-emerald-400/40 transition duration-300">
-                                <img src="Pilone - Post 2.jpg" alt="Pilone Post 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Pilone-Post2.jpg" alt="Pilone Post 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-emerald-400/40 transition duration-300">
-                                <img src="Pilone - Post 3.jpg" alt="Pilone Post 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Pilone-Post3.jpg" alt="Pilone Post 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/5] hover:border-emerald-400/40 transition duration-300">
-                                <img src="Pilone - Post 4.jpg" alt="Pilone Post 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Pilone-Post4.jpg" alt="Pilone Post 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Pilone Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)</h4>
+                        <h4 data-i18n="piloneStoryHeader" class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Pilone Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)</h4>
                         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Pilone - Storie.jpg" alt="Pilone Storie Cover" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Pilone-Storie.jpg" alt="Pilone Storie Cover" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Pilone - Storie 1.jpg" alt="Pilone Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Pilone-Storie1.jpg" alt="Pilone Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Pilone - Storie 2.jpg" alt="Pilone Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Pilone-Storie2.jpg" alt="Pilone Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Pilone - Storie 3.jpg" alt="Pilone Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Pilone-Storie3.jpg" alt="Pilone Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                             <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                                <img src="Pilone - Storie 4.jpg" alt="Pilone Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                                <img src="Pilone-Storie4.jpg" alt="Pilone Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="pt-8 border-t border-white/10 flex justify-center">
-                    <button onclick="closeModal('pilone-modal')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                    <button onclick="closeModal('pilone-modal')" data-i18n="backToOverview" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
                         Back to Portfolio Overview
                     </button>
                 </div>
@@ -968,7 +968,7 @@
         </div>
     </div>
 
-    <!-- POPUP DETTAGLIO: TORREFAZIONE (IMMAGINI CLICCABILI) -->
+    <!-- POPUP DETTAGLIO: TORREFAZIONE -->
     <div id="torrefazione-modal" class="glass-modal-overlay" onclick="closeModalOnOverlay(event, 'torrefazione-modal')">
         <div class="glass-modal-container">
             <!-- HEADER CON GLASSMORPHISM E AURORA UI AMBER CON CONTRASTO VIOLA/AZZURRO -->
@@ -983,7 +983,7 @@
                 <div class="w-full flex justify-between items-center z-10 relative">
                     <div class="flex items-center gap-2">
                         <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
-                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
+                        <p data-i18n="torrefazioneModalHeader" class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
@@ -991,7 +991,7 @@
                             <img src="canva.png" alt="Canva" class="w-5 h-5 object-contain" title="Canva">
                         </div>
                         <button onclick="closeModal('torrefazione-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
-                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                            <span data-i18n="closeProject">Close Project</span> <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
                         </button>
                     </div>
                 </div>
@@ -1001,7 +1001,7 @@
                     <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
                         Torrefazione
                     </h2>
-                    <p class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
+                    <p data-i18n="torrefazioneModalDesc" class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
                         Esaltare l'esperienza del gusto attraverso una direzione creativa audace: contenuti visivi ad alto impatto emotivo progettati per far parlare il prodotto e stimolare la voglia di assaggio.
                     </p>
                 </div>
@@ -1010,31 +1010,31 @@
             <!-- 2) SEZIONE IMMAGINI TORREFAZIONE (CLICCABILI) -->
             <div class="px-8 md:px-16 py-16 space-y-16">
                 <div class="space-y-10">
-                    <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Torrefazione Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)</h4>
+                    <h4 data-i18n="torrefazioneStoryHeader" class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Torrefazione Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)</h4>
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                         <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                            <img src="Torrefazione - Storie.jpg" alt="Torrefazione Storie" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            <img src="Torrefazione-Storie.jpg" alt="Torrefazione Storie" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                         </div>
                         <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                            <img src="Torrefazione - Storie 1.jpg" alt="Torrefazione Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            <img src="Torrefazione-Storie-1.jpg" alt="Torrefazione Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                         </div>
                         <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                            <img src="Torrefazione - Storie 2.jpg" alt="Torrefazione Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            <img src="Torrefazione-Storie2.jpg" alt="Torrefazione Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                         </div>
                         <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                            <img src="Torrefazione - Storie 3.jpg" alt="Torrefazione Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            <img src="Torrefazione-Storie-3.jpg" alt="Torrefazione Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                         </div>
                         <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                            <img src="Torrefazione - Storie 4.jpg" alt="Torrefazione Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            <img src="Torrefazione-Storie4.jpg" alt="Torrefazione Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                         </div>
                         <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                            <img src="Torrefazione - Storie 5.jpg" alt="Torrefazione Storie 5" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            <img src="Torrefazione-Storie5.jpg" alt="Torrefazione Storie 5" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                         </div>
                     </div>
                 </div>
 
                 <div class="pt-8 border-t border-white/10 flex justify-center">
-                    <button onclick="closeModal('torrefazione-modal')" class="bg-amber-600 hover:bg-amber-500 text-slate-950 font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                    <button onclick="closeModal('torrefazione-modal')" data-i18n="backToOverview" class="bg-amber-600 hover:bg-amber-500 text-slate-950 font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
                         Back to Portfolio Overview
                     </button>
                 </div>
@@ -1042,7 +1042,7 @@
         </div>
     </div>
 
-    <!-- POPUP DETTAGLIO: STELLA MARINA (IMMAGINI CLICCABILI) -->
+    <!-- POPUP DETTAGLIO: STELLA MARINA -->
     <div id="stella-modal" class="glass-modal-overlay" onclick="closeModalOnOverlay(event, 'stella-modal')">
         <div class="glass-modal-container">
             <!-- HEADER CON GLASSMORPHISM E AURORA UI OCEAN BLUE -->
@@ -1057,7 +1057,7 @@
                 <div class="w-full flex justify-between items-center z-10 relative">
                     <div class="flex items-center gap-2">
                         <span class="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse"></span>
-                        <p class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
+                        <p data-i18n="stellaModalHeader" class="text-xs font-mono uppercase tracking-widest text-gray-200 font-bold">Social Media management & Graphic design</p>
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="hidden sm:flex items-center gap-2.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md">
@@ -1065,7 +1065,7 @@
                             <img src="canva.png" alt="Canva" class="w-5 h-5 object-contain" title="Canva">
                         </div>
                         <button onclick="closeModal('stella-modal')" class="group bg-white/10 hover:bg-white text-white hover:text-slate-950 px-5 py-2.5 rounded-full font-black tracking-wide text-xs md:text-sm uppercase transition flex items-center gap-2 border border-white/10 cursor-pointer duration-300">
-                            Close Project <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
+                            <span data-i18n="closeProject">Close Project</span> <span class="text-base font-normal group-hover:rotate-90 block duration-300">×</span>
                         </button>
                     </div>
                 </div>
@@ -1075,7 +1075,7 @@
                     <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none m-0 drop-shadow-2xl">
                         Stella Marina
                     </h2>
-                    <p class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
+                    <p data-i18n="stellaModalDesc" class="text-base sm:text-lg text-gray-300 max-w-3xl font-normal tracking-wide mt-2">
                         Esaltare l'eccellenza del pescato locale attraverso un’estetica ricercata e una narrazione digitale che coniuga la freschezza del mare con la raffinatezza di un’esperienza culinaria esclusiva.
                     </p>
                 </div>
@@ -1084,28 +1084,28 @@
             <!-- 2) SEZIONE IMMAGINI STELLA MARINA (CLICCABILI) -->
             <div class="px-8 md:px-16 py-16 space-y-16">
                 <div class="space-y-10">
-                    <h4 class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Stella Marina Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)</h4>
+                    <h4 data-i18n="stellaStoryHeader" class="text-sm font-mono text-gray-400 font-bold uppercase tracking-wider mb-4">Stella Marina Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)</h4>
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                         <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                            <img src="Stella Marina - Storie.jpg" alt="Stella Marina Storie" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            <img src="Stella-Marina-Storie.jpg" alt="Stella Marina Storie" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                         </div>
                         <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                            <img src="Stella Marina - Storie 1.jpg" alt="Stella Marina Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            <img src="Stella-Marina-Storie1.jpg" alt="Stella Marina Storie 1" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                         </div>
                         <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                            <img src="Stella Marina - Storie 2.jpg" alt="Stella Marina Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            <img src="Stella-Marina-Storie2.jpg" alt="Stella Marina Storie 2" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                         </div>
                         <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                            <img src="Stella Marina - Storie 3.jpg" alt="Stella Marina Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            <img src="Stella-Marina-Storie-3.jpg" alt="Stella Marina Storie 3" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                         </div>
                         <div class="bg-slate-900/40 border border-white/10 rounded-xl overflow-hidden aspect-[9/16]">
-                            <img src="Stella Marina - Storie 4.jpg" alt="Stella Marina Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
+                            <img src="Stella-Marina-Storie4.jpg" alt="Stella Marina Storie 4" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] active:scale-[0.98] transition duration-300" onclick="openLightbox(this.src)">
                         </div>
                     </div>
                 </div>
 
                 <div class="pt-8 border-t border-white/10 flex justify-center">
-                    <button onclick="closeModal('stella-modal')" class="bg-sky-600 hover:bg-sky-500 text-white font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
+                    <button onclick="closeModal('stella-modal')" data-i18n="backToOverview" class="bg-sky-600 hover:bg-sky-500 text-white font-black px-10 py-4 rounded-full transition transform hover:scale-105 active:scale-95 text-base shadow-lg cursor-pointer">
                         Back to Portfolio Overview
                     </button>
                 </div>
@@ -1121,7 +1121,7 @@
         </div>
     </div>
 
-    <!-- INTERSECTION OBSERVER, LIGHTBOX & MODAL LOGIC -->
+    <!-- INTERSECTION OBSERVER, LIGHTBOX, MODAL & TRANSLATION LOGIC -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const gridBoxes = document.querySelectorAll('.grid-box-trigger');
@@ -1181,6 +1181,198 @@
                 }
             }
         }
+
+        // DIZIONARIO TRADUZIONI MULTILINGUA
+        const translations = {
+            it: {
+                navAbout: "About",
+                navProjects: "Projects",
+                navContact: "Get in touch",
+                heroTag: "Hey, I'm",
+                heroTitle: "Alberto<br>Polimeni<span class=\"text-white\">.</span>",
+                grid1Title: "User Research & Flows",
+                grid1Desc: "Interviews, Card Sorting & Personas",
+                grid2Title: "High-Fidelity Prototyping",
+                grid2Desc: "Pixel-perfect UI & interactive systems",
+                grid3Title: "Next-Gen Prototyping",
+                grid3Desc: "Workflow optimization via generative AI",
+                grid4Title: "Brand & Visual Systems",
+                grid4Desc: "Scalable visual identity & brand consistency",
+                aboutTag: "About me",
+                aboutText1: "Sono un <span class=\"text-cyan-400 font-bold\">UI/UX Designer</span> con un background solido e strutturato: unisco una Laurea Triennale in Design a un'esperienza biennale sul campo come <span class=\"text-violet-400 font-bold\">Graphic Designer</span>. Attualmente sto completando il mio percorso di specializzazione presso il <span class=\"text-white font-bold underline decoration-cyan-400 decoration-2\">Talent Garden di Milano</span>.",
+                aboutText2: "Il mio obiettivo è rendere i prodotti digitali semplici da usare, intuitivi ed esteticamente straordinari. Nel mio lavoro unisco logica e creatività, velocizzando la progettazione grazie all'uso di strumenti di Intelligenza Artificiale di ultima generazione per rispondere in modo preciso e immediato ai bisogni reali delle persone.",
+                projectsTitle: "Selezionati: Progetti",
+                graphicTitle: "Selezionati: Graphic Designer",
+                graphicSubtitle: "(Social Media Management)",
+                
+                // Libraccio
+                libTag: "Project Work — Case Study",
+                libDesc: "Ottimizzazione dell'esperienza e-commerce, flussi d'acquisto e architettura dell'informazione user-centered.",
+                libModalHeader: "Project Work in Talent Garden with Libraccio.it",
+                libModalDesc: "Ottimizzazione strutturale della user journey di acquisto, integrazione di dinamiche di gamification e ristrutturazione dei flussi informativi.",
+                
+                // Frac
+                fracTag: "Experience & Branding",
+                fracDesc: "Tesi di laurea — Progettazione dell'identità visiva digitale per il festival di musica e arte.",
+                fracModalHeader: "Graduation Project — Branding & Experience",
+                fracModalSub: "Rebranding visivo per le edizioni 2023 e 2024",
+                fracModalDesc: "Progettare l'immaginario del festival tra identità digitale e design di prodotto.",
+                
+                // Mamas
+                mamasTag: "Social Media Design",
+                mamasDesc: "Sviluppo di contenuti visuali e strategia di comunicazione per la presenza digital del brand.",
+                mamasModalHeader: "Social Media management & Graphic design",
+                mamasModalDesc: "Dalla direzione creativa alla gestione quotidiana dei canali social: dare voce e forma all’identità di Mamas nel panorama della movida cittadina.",
+                mamasPostHeader: "Mamas Feed Posts (Formato Post 4:5 Layout - Clicca per schermo intero)",
+                mamasStoryHeader: "Mamas Stories & Highlights (9:16 Vertical Layout - Clicca per schermo intero)",
+                
+                // Pilone
+                piloneTag: "Visual Communication",
+                piloneDesc: "Progettazione grafica editoriale e coordinamento d'immagine coordinata per piattaforme web.",
+                piloneModalHeader: "Social Media management & Graphic design",
+                piloneModalDesc: "Comunicazione del brand focalizzata su un’estetica elegante e un’ottimizzazione strategica dei canali social per un pubblico di alta gamma.",
+                pilonePostHeader: "Pilone Social Post Grid (Formato Post 4:5 Layout - Clicca per schermo intero)",
+                piloneStoryHeader: "Pilone Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)",
+                
+                // Torrefazione
+                torrefazioneTag: "Digital Art Direction",
+                torrefazioneDesc: "Rinfresco d'immagine digitale per una torrefazione artigianale focalizzata sull'identità e sul territorio.",
+                torrefazioneModalHeader: "Social Media management & Graphic design",
+                torrefazioneModalDesc: "Esaltare l'esperienza del gusto attraverso una direzione creativa audace: contenuti visivi ad alto impatto emotivo progettati per far parlare il prodotto e stimolare la voglia di assaggio.",
+                torrefazioneStoryHeader: "Torrefazione Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)",
+                
+                // Stella Marina
+                stellaTag: "Brand Identity",
+                stellaDesc: "Restyling visuale e design system completo per canali promozionali e d'accoglienza.",
+                stellaModalHeader: "Social Media management & Graphic design",
+                stellaModalDesc: "Esaltare l'eccellenza del pescato locale attraverso un’estetica ricercata e una narrazione digitale che coniuga la freschezza del mare con la raffinatezza di un’esperienza culinaria esclusiva.",
+                stellaStoryHeader: "Stella Marina Editorial Stories (9:16 Vertical Layout - Clicca per schermo intero)",
+                
+                // Elementi Comuni dei Modali
+                closeProject: "Chiudi Progetto",
+                backToOverview: "Torna al Portfolio",
+                deliverables: "Visual Deliverables & Interface Systems"
+            },
+            en: {
+                navAbout: "About",
+                navProjects: "Projects",
+                navContact: "Get in touch",
+                heroTag: "Hey, I'm",
+                heroTitle: "Alberto<br>Polimeni<span class=\"text-white\">.</span>",
+                grid1Title: "User Research & Flows",
+                grid1Desc: "Interviews, Card Sorting & Personas",
+                grid2Title: "High-Fidelity Prototyping",
+                grid2Desc: "Pixel-perfect UI & interactive systems",
+                grid3Title: "Next-Gen Prototyping",
+                grid3Desc: "Workflow optimization via generative AI",
+                grid4Title: "Brand & Visual Systems",
+                grid4Desc: "Scalable visual identity & brand consistency",
+                aboutTag: "About me",
+                aboutText1: "I am a <span class=\"text-cyan-400 font-bold\">UI/UX Designer</span> with a solid and structured background: I combine a Bachelor's Degree in Design with two years of field experience as a <span class=\"text-violet-400 font-bold\">Graphic Designer</span>. Currently, I am completing my specialization path at <span class=\"text-white font-bold underline decoration-cyan-400 decoration-2\">Talent Garden in Milan</span>.",
+                aboutText2: "My goal is to make digital products easy to use, intuitive, and aesthetically extraordinary. In my work, I combine logic and creativity, accelerating the design process thanks to next-generation Artificial Intelligence tools to respond precisely and immediately to people's real needs.",
+                projectsTitle: "Selected: Projects",
+                graphicTitle: "Selected: Graphic Designer",
+                graphicSubtitle: "(Social Media Management)",
+                
+                // Libraccio
+                libTag: "Project Work — Case Study",
+                libDesc: "Optimizing the e-commerce experience, purchasing flows, and user-centered information architecture.",
+                libModalHeader: "Project Work in Talent Garden with Libraccio.it",
+                libModalDesc: "Structural optimization of the purchase user journey, integration of gamification dynamics, and restructuring of information flows.",
+                
+                // Frac
+                fracTag: "Experience & Branding",
+                fracDesc: "Degree thesis — Designing the digital visual identity for the music and art festival.",
+                fracModalHeader: "Graduation Project — Branding & Experience",
+                fracModalSub: "Visual Rebranding for the 2023 and 2024 editions",
+                fracModalDesc: "Designing the festival's imagery between digital identity and product design.",
+                
+                // Mamas
+                mamasTag: "Social Media Design",
+                mamasDesc: "Development of visual content and communication strategy for the brand's digital presence.",
+                mamasModalHeader: "Social Media Management & Graphic Design",
+                mamasModalDesc: "From creative direction to daily management of social channels: giving voice and shape to Mamas' identity in the local nightlife scene.",
+                mamasPostHeader: "Mamas Feed Posts (4:5 Post Format Layout - Click for Fullscreen)",
+                mamasStoryHeader: "Mamas Stories & Highlights (9:16 Vertical Layout - Click for Fullscreen)",
+                
+                // Pilone
+                piloneTag: "Visual Communication",
+                piloneDesc: "Editorial graphic design and corporate image coordination for web platforms.",
+                piloneModalHeader: "Social Media Management & Graphic Design",
+                piloneModalDesc: "Brand communication focused on elegant aesthetics and strategic optimization of social channels for a premium audience.",
+                pilonePostHeader: "Pilone Social Post Grid (4:5 Post Format Layout - Click for Fullscreen)",
+                piloneStoryHeader: "Pilone Editorial Stories (9:16 Vertical Layout - Click for Fullscreen)",
+                
+                // Torrefazione
+                torrefazioneTag: "Digital Art Direction",
+                torrefazioneDesc: "Digital brand refresh for an artisanal coffee roaster focused on identity and local heritage.",
+                torrefazioneModalHeader: "Social Media Management & Graphic Design",
+                torrefazioneModalDesc: "Enhancing the experience of taste through a bold creative direction: high-impact emotional visual content designed to make the product speak and stimulate desire.",
+                torrefazioneStoryHeader: "Torrefazione Editorial Stories (9:16 Vertical Layout - Click for Fullscreen)",
+                
+                // Stella Marina
+                stellaTag: "Brand Identity",
+                stellaDesc: "Visual restyling and complete design system for promotional and hospitality channels.",
+                stellaModalHeader: "Social Media Management & Graphic Design",
+                stellaModalDesc: "Enhancing local fresh catch excellence through a refined aesthetic and digital storytelling that combines sea freshness with exclusive dining experiences.",
+                stellaStoryHeader: "Stella Marina Editorial Stories (9:16 Vertical Layout - Click for Fullscreen)",
+                
+                // Elementi Comuni dei Modali
+                closeProject: "Close Project",
+                backToOverview: "Back to Portfolio Overview",
+                deliverables: "Visual Deliverables & Interface Systems"
+            }
+        };
+
+        // GESTIONE CAMBIO LINGUA DINAMICO
+        const langToggle = document.getElementById('lang-toggle');
+        const langLabel = document.getElementById('lang-label');
+        const langFlagContainer = document.getElementById('lang-flag-container');
+        let currentLang = 'it';
+
+        const flags = {
+            en: `<svg class="w-6 h-4 md:w-6.5 md:h-4.5 rounded-xs shadow-md" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                    <clipPath id="s"><rect width="60" height="30"/></clipPath>
+                    <g clip-path="url(#s)">
+                        <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+                        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+                        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+                        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+                        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+                    </g>
+                 </svg>`,
+            it: `<svg class="w-6 h-4 md:w-6.5 md:h-4.5 rounded-xs shadow-md" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="30" height="20" fill="#009246"/>
+                    <rect x="10" width="20" height="20" fill="#f1f2f1"/>
+                    <rect x="20" width="10" height="20" fill="#ce2b37"/>
+                 </svg>`
+        };
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Traduzione di tutti gli elementi con attributo data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // Aggiorna l'etichetta del pulsante e la bandiera della lingua di destinazione
+            if (lang === 'it') {
+                langLabel.textContent = 'ENG';
+                langFlagContainer.innerHTML = flags.en;
+            } else {
+                langLabel.textContent = 'ITA';
+                langFlagContainer.innerHTML = flags.it;
+            }
+        }
+
+        langToggle.addEventListener('click', () => {
+            const nextLang = currentLang === 'it' ? 'en' : 'it';
+            switchLanguage(nextLang);
+        });
     </script>
 </body>
 </html>
