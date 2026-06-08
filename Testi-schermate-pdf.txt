@@ -1,0 +1,79 @@
+========================================================================
+PROJECT WORK: RESTYLING LIBRACCIO.IT
+GRUPPO 4 - CHECKOUT & ENGAGEMENT
+========================================================================
+
+------------------------------------------------------------------------
+1. VISIONE DEL PROGETTO & CONCEPT
+------------------------------------------------------------------------
+L'obiettivo principale del progetto è definire un'esperienza d'acquisto più chiara, personale e coinvolgente per l'utente su Libraccio.it.
+
+Libraccio viene ripensato come uno spazio multifunzionale dove l'utente può:
+- Scoprire nuovi contenuti in modo fluido.
+- Organizzare i propri libri e le proprie letture.
+- Ricevere consigli personalizzati basati sui propri interessi.
+- Essere premiato per la fedeltà e la costanza.
+- Sentirsi parte integrante di un percorso continuo.
+
+Il nuovo pilastro dell'esperienza utente si basa su tre concetti chiave:
+1. Semplice
+2. Personalizzata
+3. Coinvolgente
+
+------------------------------------------------------------------------
+2. OBIETTIVI STRATEGICI UX
+------------------------------------------------------------------------
+Il lavoro del Gruppo 4 si è concentrato su due macro-obiettivi:
+
+* OBIETTIVO 1: OTTIMIZZAZIONE DEL CHECKOUT
+Rendere il processo di checkout più efficiente, riducendo drasticamente il tempo e lo sforzo richiesti all'utente. L'obiettivo è rendere l'azione più efficace, eliminando gli attriti e assicurando il completamento degli acquisti.
+
+* OBIETTIVO 2: MASSIMIZZAZIONE DELL'ENGAGEMENT
+Migliorare la fase di post-acquisto e di fidelizzazione per mantenere l'utente attivo, stimolato e coinvolto nel tempo all'interno della piattaforma.
+
+------------------------------------------------------------------------
+3. COSA È EMERSO DALLA RICERCA (USER RESEARCH & PAIN POINTS)
+------------------------------------------------------------------------
+Dall'analisi dei dati raccolti e dai test con gli utenti, sono state evidenziate diverse criticità e necessità, raggruppate per macro-argomenti:
+
+* UI & Navigazione / Architettura dell'Informazione:
+Gli utenti richiedono un'architettura dell'informazione chiara e veloce, che riduca il carico cognitivo durante la navigazione.
+
+* Info Libri:
+È emerso un forte bisogno di informazioni trasparenti e dettagliate sulla disponibilità e sulle condizioni specifiche dei libri usati.
+
+* Pagamento:
+Gli utenti cercano velocità e un processo decisionale fluido, caratterizzato da pochi passaggi chiari e privi di distrazioni.
+
+* Guida e Suggerimenti:
+Mancano strumenti di supporto, consigli e sistemi di guida che aiutino e orientino l'utente nella scelta dei libri ideali.
+
+* Registrazione / Incentivi:
+La ricerca dimostra che la presenza di una reward (premio/incentivo) invoglia attivamente gli utenti a registrarsi e a creare un account.
+
+------------------------------------------------------------------------
+4. FUNZIONALITÀ INTRODOTTE (FEATURE MAPPING)
+------------------------------------------------------------------------
+Per rispondere ai bisogni emersi dalla ricerca, sono state introdotte feature mirate per ottimizzare l'esperienza d'acquisto e l'engagement:
+
+* Checkout più rapido: Un flusso di pagamento velocizzato e privo di attriti strutturato in passaggi logici (Dati/Spedizione -> Pagamento -> Conferma).
+* Pagina Prodotto ottimizzata: Riorganizzazione delle informazioni chiave (distinzione immediata tra Nuovo e Usato).
+* Programma Fedeltà: Introduzione di una Carta Fedeltà digitale ("Libraccio Card") per generare valore e premiare la continuità dell'utente tramite accumulo punti.
+* Profilo e Sfide: Gamification applicata al profilo utente (es. livello "Esploratore" e tracciamento dei progressi) per completare sfide e monitorare i reward.
+* Scaffali: Uno spazio personale ("I tuoi scaffali") dove l'utente può dare forma alla propria libreria ideale, organizzando i libri desiderati o acquistati.
+* Consigliati per te / Newsletter: Sistemi di raccomandazione personalizzati basati su brevi quiz (es. "Cosa ti piacerebbe oggi? Rispondi a 3 domande") e newsletter dedicate alle novità per guidare alla scoperta e all'ispirazione.
+
+------------------------------------------------------------------------
+5. STRUTTURA DELLE SCHERMATE MOBILE (UI DESIGN SYSTEM)
+------------------------------------------------------------------------
+Il flusso dell'applicazione mobile si sviluppa attraverso le seguenti schermate chiave:
+
+1. Home Page: Integra la barra di ricerca, il gancio per il quiz di raccomandazione ("Cosa ti piacerebbe oggi?") e caroselli mirati ("Consigliati per te").
+2. Pagina Prodotto: Focalizzata sulla scheda libro con prezzi chiari e selettore immediato per l'acquisto del formato "Nuovo" o "Usato".
+3. Programma Fedeltà: Dashboard della carta fedeltà con saldo punti, barra di avanzamento e sblocco dei coupon sconto (es. -10%).
+4. Profilo e Sfide: Centro di controllo dell'utente con avatar, badge di livello, wallet dei crediti e storico.
+5. Scaffali: Interfaccia di gestione della libreria personale filtrabile e categorizzata (es. "Estate dei classici", "Libri Horror").
+6. Newsletter: Schermata incentrata sulla scoperta di novità, promozioni e selezioni editoriali basate sui gusti dell'utente.
+7. Checkout (Step 1 - Dati e Spedizione): Form semplificato per dati personali e riepilogo costi immediato con calcolo dei punti fedeltà guadagnati.
+8. Checkout (Step 2 - Conferma Ordine): Pagina di successo ("Il tuo ordine è confermato") con opzione di salvataggio dati e creazione account in un click per incentivare la registrazione (vantaggi: 30 punti bonus, sconti dedicati, checkout rapido futuro).
+========================================================================

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRAC Festival Identity | Alberto Polimeni</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body { background-color: #060913; }
+        .glass-panel { background: rgba(15, 23, 42, 0.45); backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass-card { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.06); }
+    </style>
+</head>
+<body class="text-gray-100 font-sans antialiased min-h-screen p-4 md:p-10">
+
+    <div class="max-w-6xl mx-auto space-y-10">
+        <a href="index.html" class="inline-flex items-center text-xs font-bold text-purple-400 uppercase bg-slate-900/50 border border-white/10 px-4 py-2 rounded-xl hover:bg-purple-950/40 transition">← Torna alla Home</a>
+
+        <div class="glass-panel p-6 md:p-8 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-purple-400">Progetto di Tesi di Laurea Accademica</span>
+                <h1 class="text-4xl font-black text-white tracking-tight mt-1">FRAC Festival</h1>
+            </div>
+            <div class="glass-card px-4 py-3 rounded-xl border border-white/10 text-right">
+                <span class="block text-[10px] font-mono text-gray-400 uppercase tracking-wider">Strumenti</span>
+                <span class="text-sm font-bold text-purple-300">Illustrator & Photoshop</span>
+            </div>
+        </div>
+
+        <!-- Descrizione Storica e Tesi -->
+        <div class="glass-panel p-6 rounded-3xl">
+            <h3 class="text-lg font-bold text-white mb-2">Il Progetto e la Visione Creativa</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">
+                <strong>Il Festival:</strong> Il FRAC (Festival di Ricerca Artistica Contemporanea) è un evento culturale multidisciplinare incentrato sulle arti visive, performance live e musica elettronica.
+                <br><br>
+                <strong>La mia Tesi:</strong> Questo impianto visivo costituisce il mio progetto di Tesi di Laurea. Ho riprogettato la brand identity e la comunicazione promozionale dell'evento basandomi su forti contrasti tipografici e composizioni astratte.
+                <br>
+                <span class="text-purple-300 font-semibold italic mt-2 block">* Nota: Il progetto è stato sviluppato a scopo accademico all'interno del percorso di studi; le grafiche mostrate non corrispondono necessariamente ai materiali applicati ufficialmente dall'organizzazione del festival.</span>
+            </p>
+        </div>
+
+        <!-- GRIGLIA EDIZIONE 2023 -->
+        <section class="glass-panel p-6 rounded-3xl space-y-4">
+            <h2 class="text-xl font-black text-white border-b border-white/10 pb-2">FRAC Festival — Edizione 2023</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="glass-card p-2 rounded-xl border border-white/5">
+                    <img src="Frac Festival 2023, Kid's KIT.jpg" class="w-full h-auto rounded-lg object-cover" alt="Kid's KIT 2023">
+                    <span class="block text-[10px] text-gray-400 font-mono mt-2 text-center">Kid's KIT</span>
+                </div>
+                <div class="glass-card p-2 rounded-xl border border-white/5">
+                    <img src="Frac Festival 2023, Pochette Beauty.jpg" class="w-full h-auto rounded-lg object-cover" alt="Pochette Beauty 2023">
+                    <span class="block text-[10px] text-gray-400 font-mono mt-2 text-center">Pochette Beauty</span>
+                </div>
+                <div class="glass-card p-2 rounded-xl border border-white/5">
+                    <img src="Frac Festival 2023, Summer KIT.jpg" class="w-full h-auto rounded-lg object-cover" alt="Summer KIT 2023">
+                    <span class="block text-[10px] text-gray-400 font-mono mt-2 text-center">Summer KIT</span>
+                </div>
+                <div class="glass-card p-2 rounded-xl border border-white/5">
+                    <img src="Frac Festival 2023, Wild KIT.jpg" class="w-full h-auto rounded-lg object-cover" alt="Wild KIT 2023">
+                    <span class="block text-[10px] text-gray-400 font-mono mt-2 text-center">Wild KIT</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRIGLIA EDIZIONE 2024 -->
+        <section class="glass-panel p-6 rounded-3xl space-y-4">
+            <h2 class="text-xl font-black text-white border-b border-white/10 pb-2">FRAC Festival — Edizione 2024</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="glass-card p-2 rounded-xl border border-white/5">
+                    <img src="Frac festival 2024- Kids Kit.jpg" class="w-full h-auto rounded-lg object-cover" alt="Kids Kit 2024">
+                    <span class="block text-[10px] text-gray-400 font-mono mt-2 text-center">Kids Kit</span>
+                </div>
+                <div class="glass-card p-2 rounded-xl border border-white/5">
+                    <img src="Frac festival 2024- Kit Basic.jpg" class="w-full h-auto rounded-lg object-cover" alt="Kit Basic 2024">
+                    <span class="block text-[10px] text-gray-400 font-mono mt-2 text-center">Kit Basic</span>
+                </div>
+                <div class="glass-card p-2 rounded-xl border border-white/5">
+                    <img src="Frac festival 2024- Midnight Kit.jpg" class="w-full h-auto rounded-lg object-cover" alt="Midnight Kit 2024">
+                    <span class="block text-[10px] text-gray-400 font-mono mt-2 text-center">Midnight Kit</span>
+                </div>
+                <div class="glass-card p-2 rounded-xl border border-white/5">
+                    <img src="Frac festival 2024- Tote bag.jpg" class="w-full h-auto rounded-lg object-cover" alt="Tote bag 2024">
+                    <span class="block text-[10px] text-gray-400 font-mono mt-2 text-center">Tote Bag Brand</span>
+                </div>
+                <div class="glass-card p-2 rounded-xl border border-white/5">
+                    <img src="Frac festival 2024- T-shirt.jpg" class="w-full h-auto rounded-lg object-cover" alt="T-shirt 2024">
+                    <span class="block text-[10px] text-gray-400 font-mono mt-2 text-center">T-shirt Design</span>
+                </div>
+                <div class="glass-card p-2 rounded-xl border border-white/5">
+                    <img src="Frac festival 2024- Wild KIT.jpg" class="w-full h-auto rounded-lg object-cover" alt="Wild KIT 2024">
+                    <span class="block text-[10px] text-gray-400 font-mono mt-2 text-center">Wild KIT</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
